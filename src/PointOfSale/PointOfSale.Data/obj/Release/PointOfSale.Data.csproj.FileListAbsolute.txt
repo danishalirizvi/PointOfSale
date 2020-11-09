@@ -1,0 +1,17 @@
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\bin\Release\PointOfSale.Data.dll
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\bin\Release\PointOfSale.Data.pdb
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\bin\Release\Dapper.dll
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\bin\Release\System.Data.SQLite.dll
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\bin\Release\Dapper.xml
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\bin\Release\System.Data.SQLite.xml
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\obj\Release\PointOfSale.Data.dll
+D:\PointOfSale_New\src\PointOfSale\PointOfSale.Data\obj\Release\PointOfSale.Data.pdb
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\bin\Release\PointOfSale.Data.dll
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\bin\Release\PointOfSale.Data.pdb
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\bin\Release\Dapper.dll
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\bin\Release\System.Data.SQLite.dll
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\bin\Release\Dapper.xml
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\bin\Release\System.Data.SQLite.xml
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\obj\Release\PointOfSale.Data.dll
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\obj\Release\PointOfSale.Data.pdb
+D:\PointOfSale\src\PointOfSale\PointOfSale.Data\obj\Release\PointOfSale.Data.csprojResolveAssemblyReference.cache

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SalesByCustomerDataSet" targetNamespace="http://tempuri.org/SalesByCustomerDataSet.xsd" xmlns:mstns="http://tempuri.org/SalesByCustomerDataSet.xsd" xmlns="http://tempuri.org/SalesByCustomerDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PointOfSaleConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PointOfSaleConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PointOfSale.UI.Properties.Settings.GlobalReference.Default.PointOfSaleConnectionString" Provider="System.Data.SQLite.EF6" />
+          <Connection ConnectionStringObject="data source=D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\DataContext\PointOfSale.db" IsAppSettingsProperty="false" Modifier="Assembly" Name="SQLite [PointOfSale]" ParameterPrefix="@" Provider="System.Data.SQLite.EF6" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SalesByItemReportViewTableAdapter" GeneratorDataComponentClassName="SalesByItemReportViewTableAdapter" Name="SalesByItemReportView" UserDataComponentName="SalesByItemReportViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SQLite [PointOfSale]" DbObjectName="main.SalesByItemReportView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [InvoiceDate], [InvoiceNumber], [CustomerID], [Quantity], [UnitType], [UnitPrice], [TotalPrice], [ProductID] FROM [SalesByItemReportView]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="InvoiceDate" DataSetColumn="InvoiceDate" />
+              <Mapping SourceColumn="InvoiceNumber" DataSetColumn="InvoiceNumber" />
+              <Mapping SourceColumn="CustomerID" DataSetColumn="CustomerID" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
+              <Mapping SourceColumn="UnitType" DataSetColumn="UnitType" />
+              <Mapping SourceColumn="UnitPrice" DataSetColumn="UnitPrice" />
+              <Mapping SourceColumn="TotalPrice" DataSetColumn="TotalPrice" />
+              <Mapping SourceColumn="ProductID" DataSetColumn="ProductID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SalesByCustomerDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SalesByCustomerDataSet" msprop:Generator_UserDSName="SalesByCustomerDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SalesByItemReportView" msprop:Generator_TableClassName="SalesByItemReportViewDataTable" msprop:Generator_TableVarName="tableSalesByItemReportView" msprop:Generator_RowChangedName="SalesByItemReportViewRowChanged" msprop:Generator_TablePropName="SalesByItemReportView" msprop:Generator_RowDeletingName="SalesByItemReportViewRowDeleting" msprop:Generator_RowChangingName="SalesByItemReportViewRowChanging" msprop:Generator_RowEvHandlerName="SalesByItemReportViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesByItemReportViewRowDeleted" msprop:Generator_RowClassName="SalesByItemReportViewRow" msprop:Generator_UserTableName="SalesByItemReportView" msprop:Generator_RowEvArgName="SalesByItemReportViewRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InvoiceDate" msprop:Generator_ColumnVarNameInTable="columnInvoiceDate" msprop:Generator_ColumnPropNameInRow="InvoiceDate" msprop:Generator_ColumnPropNameInTable="InvoiceDateColumn" msprop:Generator_UserColumnName="InvoiceDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InvoiceNumber" msprop:Generator_ColumnVarNameInTable="columnInvoiceNumber" msprop:Generator_ColumnPropNameInRow="InvoiceNumber" msprop:Generator_ColumnPropNameInTable="InvoiceNumberColumn" msprop:Generator_UserColumnName="InvoiceNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:long" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:long" minOccurs="0" />
+              <xs:element name="UnitType" msprop:Generator_ColumnVarNameInTable="columnUnitType" msprop:Generator_ColumnPropNameInRow="UnitType" msprop:Generator_ColumnPropNameInTable="UnitTypeColumn" msprop:Generator_UserColumnName="UnitType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UnitPrice" msprop:Generator_ColumnVarNameInTable="columnUnitPrice" msprop:Generator_ColumnPropNameInRow="UnitPrice" msprop:Generator_ColumnPropNameInTable="UnitPriceColumn" msprop:Generator_UserColumnName="UnitPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalPrice" msprop:Generator_ColumnVarNameInTable="columnTotalPrice" msprop:Generator_ColumnPropNameInRow="TotalPrice" msprop:Generator_ColumnPropNameInTable="TotalPriceColumn" msprop:Generator_UserColumnName="TotalPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ProductID" msprop:Generator_ColumnVarNameInTable="columnProductID" msprop:Generator_ColumnPropNameInRow="ProductID" msprop:Generator_ColumnPropNameInTable="ProductIDColumn" msprop:Generator_UserColumnName="ProductID" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

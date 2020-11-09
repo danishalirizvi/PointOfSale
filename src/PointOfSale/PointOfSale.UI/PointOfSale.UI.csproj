@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F85486F-2E49-4B4A-91F7-952E4AAE1B34}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PointOfSale.UI</RootNamespace>
+    <AssemblyName>PointOfSale.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\POS Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6FA83F70F18A2291E1757751C62FFC71555E7923</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PointOfSale.UI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Engine.13.0.4000\lib\net40\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ClientDoc.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommLayer.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonControls.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonObjectModel.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Controllers.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CubeDefModel.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataDefModel.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataSetConversion.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ReportDefModel.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.XmlSerialize.13.0.4000\lib\net40\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Shared.13.0.4000\lib\net40\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\TameerKaro\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EQATEC.Analytics.Monitor, Version=3.2.1.0, Culture=neutral, PublicKeyToken=213c7c68adb58a17, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\EQATEC.Analytics.Monitor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.113.1\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Analytics, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Analytics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.ChartView, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.ChartView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.GridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.PdfViewer, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.PdfViewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.PivotGrid, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.PivotGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadChart, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.RadChart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadDiagram, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.RadDiagram.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadDock, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.RadDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadMap, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.RadMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RadMarkupEditor, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.RadMarkupEditor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.RichTextEditor, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.RichTextEditor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Scheduler, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Scheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.SpellChecker, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.SpellChecker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Aqua.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Breeze.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Desert, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Desert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.HighContrastBlack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Material, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Material.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Office2007Black.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Office2007Silver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Office2010Black.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Blue, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Office2010Blue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Office2010Silver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Dark, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Office2013Dark.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Light, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Office2013Light.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.TelerikMetro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.TelerikMetroBlue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroTouch, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.TelerikMetroTouch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.VisualStudio2012Dark.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.VisualStudio2012Light.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Windows7.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows8, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.Themes.Windows8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.WinControls.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Documents.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Documents.Fixed.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Documents.Flow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Pdf, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip, Version=2017.2.428.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\Telerik.Windows.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\TelerikCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikData, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\TelerikData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikExport, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2017.2.502.40\TelerikExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\InvoiceHelper.cs" />
+    <Compile Include="Helper\ListtoDataTableConverter.cs" />
+    <Compile Include="Helper\Validators.cs" />
+    <Compile Include="Managers\BaseManager.cs" />
+    <Compile Include="Managers\CustomerManager.cs" />
+    <Compile Include="Managers\EmployeeManager.cs" />
+    <Compile Include="Managers\ExpenseManager.cs" />
+    <Compile Include="Managers\InvoiceManager.cs" />
+    <Compile Include="Managers\ItemManager.cs" />
+    <Compile Include="Managers\LoginManager.cs" />
+    <Compile Include="Managers\PaymentManager.cs" />
+    <Compile Include="Managers\ProductManager.cs" />
+    <Compile Include="Managers\SupplierManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Other\ExepnseByCategory\ExpenseByCategoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpenseByCategoryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\ExepnseByCategory\ExpenseByCategoryReport.cs">
+      <DependentUpon>ExpenseByCategoryReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Other\ExepnseByCategory\ExpensByCategoryReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Other\ExepnseByCategory\ExpensByCategoryReportForm.Designer.cs">
+      <DependentUpon>ExpensByCategoryReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\Expense\ExpenseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpenseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\Expense\ExpenseReport.cs">
+      <DependentUpon>ExpenseReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Other\Expense\ExpenseReportFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Other\Expense\ExpenseReportFrom.Designer.cs">
+      <DependentUpon>ExpenseReportFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\Item\ItemReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ItemReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\Other\Item\ItemReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Other\Item\ItemReportForm.designer.cs">
+      <DependentUpon>ItemReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\Item\ProductDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\Supplier\SupplierReport.cs">
+      <DependentUpon>SupplierReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Other\Supplier\SupplierReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Other\Supplier\SupplierReportForm.Designer.cs">
+      <DependentUpon>SupplierReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\Supplier\SuppliersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuppliersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchase\AllSuplierReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Purchase\AllSuplierReportForm.designer.cs">
+      <DependentUpon>AllSuplierReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchase\AllSuplierReport.cs">
+      <DependentUpon>AllSuplierReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Purchase\SupplierPaymetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupplierPaymetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\All\AllSalesReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllSalesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\Sales\All\AllSales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllSales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\All\SalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Sales\All\SalesForm.Designer.cs">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\Customers\SalesByCustomerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesByCustomerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\Customers\SalesByCustomerReport.cs">
+      <DependentUpon>SalesByCustomerReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Sales\Customers\SalesByCustomerReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Sales\Customers\SalesByCustomerReportForm.Designer.cs">
+      <DependentUpon>SalesByCustomerReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\Item\SalesByItemDataSet.Designer.cs">
+      <DependentUpon>SalesByItemDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Sales\Item\SalesByItemReport.cs">
+      <DependentUpon>SalesByItemReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Sales\Item\SalesByItemReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Sales\Item\SalesByItemReportForm.Designer.cs">
+      <DependentUpon>SalesByItemReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\PaymentType\PaymentMethodReport.cs">
+      <DependentUpon>PaymentMethodReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Sales\PaymentType\PaymentMethodReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentMethodReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\PaymentType\PaymentMethodReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Sales\PaymentType\PaymentMethodReportForm.Designer.cs">
+      <DependentUpon>PaymentMethodReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Sales\PaymentType\PaymentTypeReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentMethodReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\CalculateValuesVm.cs" />
+    <Compile Include="ViewModel\InvoiceItemVm.cs" />
+    <Compile Include="ViewModel\InvoiceVm.cs" />
+    <Compile Include="ViewModel\PurchaseInvoiceItemVm.cs" />
+    <Compile Include="Views\AddCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddCustomerForm.designer.cs">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSalesPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddSalesPersonForm.designer.cs">
+      <DependentUpon>AddSalesPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceDesk\InvoiceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceSearchPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InvoiceDeskForm.designer.cs">
+      <DependentUpon>InvoiceSearchPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceDesk\InvoiceDeskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InvoiceDesk\InvoiceDeskForm.designer.cs">
+      <DependentUpon>InvoiceDeskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Items\AddEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\AddEmployeeForm.designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageCustomerForm.Designer.cs">
+      <DependentUpon>ManageCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageSalesPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageSalesPersonForm.designer.cs">
+      <DependentUpon>ManageSalesPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageLoginUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageLoginUserForm.designer.cs">
+      <DependentUpon>ManageLoginUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddExpenseForm.designer.cs">
+      <DependentUpon>AddExpenseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddPaymentMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddPaymentMethodForm.designer.cs">
+      <DependentUpon>AddPaymentMethodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddWorkShiftForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddWorkShiftForm.designer.cs">
+      <DependentUpon>AddWorkShiftForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEmploymentStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddEmploymentStatusForm.designer.cs">
+      <DependentUpon>AddEmploymentStatusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEmploymentRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddEmploymentRoleForm.designer.cs">
+      <DependentUpon>AddEmploymentRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddSupplierForm.designer.cs">
+      <DependentUpon>AddSupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddExpenseCatagoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddExpenseCatagoryForm.designer.cs">
+      <DependentUpon>AddExpenseCatagoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Items\AddItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\AddItemForm.Designer.cs">
+      <DependentUpon>AddItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Items\OnlyShowItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\OnlyShowItemForm.designer.cs">
+      <DependentUpon>OnlyShowItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Items\ShowItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Items\ShowItemForm.Designer.cs">
+      <DependentUpon>ShowItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageExpenseCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageExpenseCategoryForm.designer.cs">
+      <DependentUpon>ManageExpenseCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageExpenseForm.designer.cs">
+      <DependentUpon>ManageExpenseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageEmployeeForm.designer.cs">
+      <DependentUpon>ManageEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddProductTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddProductTypeForm.designer.cs">
+      <DependentUpon>AddProductTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagePaymentMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManagePaymentMethodForm.designer.cs">
+      <DependentUpon>ManagePaymentMethodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageProductTypesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageProductTypesForm.designer.cs">
+      <DependentUpon>ManageProductTypesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManageSupplierForm.designer.cs">
+      <DependentUpon>ManageSupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PurchaseInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PurchaseInvoiceForm.Designer.cs">
+      <DependentUpon>PurchaseInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaleInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SaleInvoiceForm.Designer.cs">
+      <DependentUpon>SaleInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Content Include="Resources\A4_bill.png" />
+    <Content Include="Resources\add-icon %281%29.png" />
+    <Content Include="Resources\add-icon.png" />
+    <Content Include="Resources\add-mini-one.png" />
+    <Content Include="Resources\addItem.png" />
+    <Content Include="Resources\AddProductPage.png" />
+    <Content Include="Resources\addSupplier.png" />
+    <Content Include="Resources\AddToCart.png" />
+    <Content Include="Resources\Add_Item.png" />
+    <Content Include="Resources\AdEx.png" />
+    <Content Include="Resources\AdIt.png" />
+    <Content Include="Resources\Adjust.png" />
+    <Content Include="Resources\AdSp.png" />
+    <Content Include="Resources\all-emp.png" />
+    <Content Include="Resources\Cancel_Icon.png" />
+    <Content Include="Resources\Cash.png" />
+    <Content Include="Resources\Cash1.png" />
+    <Content Include="Resources\cashSmall.png" />
+    <Content Include="Resources\Change.png" />
+    <Content Include="Resources\check.png" />
+    <Content Include="Resources\close-hi.png" />
+    <Content Include="Resources\close-mini-one.png" />
+    <Content Include="Resources\Credit.png" />
+    <Content Include="Resources\CreditSmall.png" />
+    <Content Include="Resources\Custom-Icon-Design-Pretty-Office-4-Couple.ico" />
+    <Content Include="Resources\Customer.png" />
+    <Content Include="Resources\data_edit.png" />
+    <Content Include="Resources\doc-rpt.png" />
+    <Content Include="Resources\document.png" />
+    <Content Include="Resources\DownArrow.png" />
+    <Content Include="Resources\ds-1.png" />
+    <Content Include="Resources\ds-10.png" />
+    <Content Include="Resources\ds-2.png" />
+    <Content Include="Resources\ds-3.png" />
+    <Content Include="Resources\ds-4.png" />
+    <Content Include="Resources\ds-5.png" />
+    <Content Include="Resources\ds-6.jpg" />
+    <Content Include="Resources\ds-7.ico" />
+    <Content Include="Resources\ds-8.png" />
+    <Content Include="Resources\Edit-validated-icon.png" />
+    <Content Include="Resources\Editing-Attach-icon.png" />
+    <Content Include="Resources\Employee.png" />
+    <Content Include="Resources\file-rpt.png" />
+    <Content Include="Resources\folder-customer-icon.png" />
+    <Content Include="Resources\folder-invoices-icon.png" />
+    <Content Include="Resources\InDe.png" />
+    <Content Include="Resources\inv.png" />
+    <Content Include="Resources\Inv1.png" />
+    <Content Include="Resources\Inv11.png" />
+    <Content Include="Resources\Inv2.png" />
+    <Content Include="Resources\Inv21.png" />
+    <Content Include="Resources\invicon.png" />
+    <Content Include="Resources\Invoice.png" />
+    <Content Include="Resources\invoiceBig.png" />
+    <Content Include="Resources\InvoiceJannat.jpg" />
+    <Content Include="Resources\InvoiceMaster.png" />
+    <Content Include="Resources\InvoiceP.png" />
+    <Content Include="Resources\InvoiceP1.png" />
+    <Content Include="Resources\InvoiceP2.png" />
+    <Content Include="Resources\InvoicePrint130.png" />
+    <Content Include="Resources\invoices-icon-5.png" />
+    <Content Include="Resources\itemlist.png" />
+    <Content Include="Resources\login.png" />
+    <Content Include="Resources\LOGO_DSOFT.png" />
+    <Content Include="Resources\menu-cus.png" />
+    <Content Include="Resources\menu-customer.png" />
+    <Content Include="Resources\menu-employee.png" />
+    <Content Include="Resources\menu-expense.png" />
+    <Content Include="Resources\menu-file.png" />
+    <Content Include="Resources\menu-invoice.png" />
+    <Content Include="Resources\menu-item.png" />
+    <Content Include="Resources\menu-other-report.png" />
+    <Content Include="Resources\menu-report.png" />
+    <Content Include="Resources\menu-sup-report.png" />
+    <Content Include="Resources\menu-supplier.png" />
+    <Content Include="Resources\MIV.jpg" />
+    <Content Include="Resources\NewOrder.png" />
+    <Content Include="Resources\NoorInvoice.png" />
+    <Content Include="Resources\other-rpt.png" />
+    <Content Include="Resources\Oxygen-Icons.org-Oxygen-Actions-arrow-right.ico" />
+    <Content Include="Resources\PhoneBook.png" />
+    <Content Include="Resources\picon.png" />
+    <Content Include="Resources\Print.png" />
+    <Content Include="Resources\PrintInvoice.jpg" />
+    <Content Include="Resources\PrintInvoiceA4.jpg" />
+    <Content Include="Resources\PrintPreview.png" />
+    <Content Include="Resources\Register-icon.png" />
+    <Content Include="Resources\report-image.png" />
+    <Content Include="Resources\Reports-icon.png" />
+    <Content Include="Resources\rpt.png" />
+    <Content Include="Resources\Sale.png" />
+    <Content Include="Resources\search-icon %281%29.png" />
+    <Content Include="Resources\search-icon.png" />
+    <Content Include="Resources\searchbutton.png" />
+    <Content Include="Resources\SEO-icon.png" />
+    <Content Include="Resources\settings-icon.png" />
+    <Content Include="Resources\show.png" />
+    <Content Include="Resources\ShowItem.png" />
+    <Content Include="Resources\Supplier.png" />
+    <Content Include="Resources\Supplier1.png" />
+    <Content Include="Resources\Support.png" />
+    <Content Include="Resources\update.png" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Content Include="Reports\Other\ExepnseByCategory\ExpenseByCategoryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ExpenseByCategoryReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reports\Other\ExepnseByCategory\ExpensByCategoryReportForm.resx">
+      <DependentUpon>ExpensByCategoryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Expense\ExpenseReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ExpenseReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Expense\ExpenseReportFrom.resx">
+      <DependentUpon>ExpenseReportFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Item\ItemReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ItemReport2.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Item\ItemReportForm.resx">
+      <DependentUpon>ItemReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Supplier\SupplierReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SupplierReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Supplier\SupplierReportForm.resx">
+      <DependentUpon>SupplierReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchase\AllSuplierReportForm.resx">
+      <DependentUpon>AllSuplierReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchase\AllSuplierReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllSuplierReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sales\All\AllSalesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllSalesReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sales\All\SalesForm.resx">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sales\Customers\SalesByCustomerReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesByCustomerReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sales\Customers\SalesByCustomerReportForm.resx">
+      <DependentUpon>SalesByCustomerReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sales\Item\SalesByItemReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesByItemReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Sales\Item\SalesByItemReportForm.resx">
+      <DependentUpon>SalesByItemReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Reports\Sales\PaymentType\PaymentMethodReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PaymentMethodReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reports\Sales\PaymentType\PaymentMethodReportForm.resx">
+      <DependentUpon>PaymentMethodReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddCustomerForm.resx">
+      <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddSalesPersonForm.resx">
+      <DependentUpon>AddSalesPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InvoiceDesk\InvoiceDeskForm.resx">
+      <DependentUpon>InvoiceDeskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InvoiceSearchPopup.resx">
+      <DependentUpon>InvoiceSearchPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageCustomerForm.resx">
+      <DependentUpon>ManageCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageSalesPersonForm.resx">
+      <DependentUpon>ManageSalesPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageLoginUserForm.resx">
+      <DependentUpon>ManageLoginUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddExpenseForm.resx">
+      <DependentUpon>AddExpenseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddPaymentMethodForm.resx">
+      <DependentUpon>AddPaymentMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddWorkShiftForm.resx">
+      <DependentUpon>AddWorkShiftForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddEmploymentStatusForm.resx">
+      <DependentUpon>AddEmploymentStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddEmploymentRoleForm.resx">
+      <DependentUpon>AddEmploymentRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddSupplierForm.resx">
+      <DependentUpon>AddSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddExpenseCatagoryForm.resx">
+      <DependentUpon>AddExpenseCatagoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\AddItemForm.resx">
+      <DependentUpon>AddItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\OnlyShowItemForm.resx">
+      <DependentUpon>OnlyShowItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Items\ShowItemForm.resx">
+      <DependentUpon>ShowItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageExpenseCategoryForm.resx">
+      <DependentUpon>ManageExpenseCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageExpenseForm.resx">
+      <DependentUpon>ManageExpenseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageEmployeeForm.resx">
+      <DependentUpon>ManageEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddProductTypeForm.resx">
+      <DependentUpon>AddProductTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="DataContext\PointOfSale.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Views\ManagePaymentMethodForm.resx">
+      <DependentUpon>ManagePaymentMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageProductTypesForm.resx">
+      <DependentUpon>ManageProductTypesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManageSupplierForm.resx">
+      <DependentUpon>ManageSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PurchaseInvoiceForm.resx">
+      <DependentUpon>PurchaseInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SaleInvoiceForm.resx">
+      <DependentUpon>SaleInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Reports\Other\ExepnseByCategory\ExpenseByCategoryDataSet.xsc">
+      <DependentUpon>ExpenseByCategoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\ExepnseByCategory\ExpenseByCategoryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExpenseByCategoryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Other\ExepnseByCategory\ExpenseByCategoryDataSet.xss">
+      <DependentUpon>ExpenseByCategoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\Expense\ExpenseDataSet.xsc">
+      <DependentUpon>ExpenseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\Expense\ExpenseDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExpenseDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Other\Expense\ExpenseDataSet.xss">
+      <DependentUpon>ExpenseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\Item\ProductDataSet.xsc">
+      <DependentUpon>ProductDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\Item\ProductDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Other\Item\ProductDataSet.xss">
+      <DependentUpon>ProductDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\Supplier\SuppliersDataSet.xsc">
+      <DependentUpon>SuppliersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\Supplier\SuppliersDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SuppliersDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Other\Supplier\SuppliersDataSet.xss">
+      <DependentUpon>SuppliersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Purchase\SupplierPaymetDataSet.xsc">
+      <DependentUpon>SupplierPaymetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Purchase\SupplierPaymetDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SupplierPaymetDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Purchase\SupplierPaymetDataSet.xss">
+      <DependentUpon>SupplierPaymetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\All\AllSales.xsc">
+      <DependentUpon>AllSales.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\All\AllSales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AllSales.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Sales\All\AllSales.xss">
+      <DependentUpon>AllSales.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\Customers\SalesByCustomerDataSet.xsc">
+      <DependentUpon>SalesByCustomerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\Customers\SalesByCustomerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalesByCustomerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Sales\Customers\SalesByCustomerDataSet.xss">
+      <DependentUpon>SalesByCustomerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\Item\SalesByItemDataSet.xsc">
+      <DependentUpon>SalesByItemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\Item\SalesByItemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalesByItemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reports\Sales\Item\SalesByItemDataSet.xss">
+      <DependentUpon>SalesByItemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\PaymentType\PaymentMethodReportDataSet.xsc">
+      <DependentUpon>PaymentMethodReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Sales\PaymentType\PaymentMethodReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaymentTypeReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Sales\PaymentType\PaymentMethodReportDataSet.xss">
+      <DependentUpon>PaymentMethodReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Views\InvoiceDesk\InvoiceDataSet.xsc">
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Views\InvoiceDesk\InvoiceDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Views\InvoiceDesk\InvoiceDataSet.xss">
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PointOfSale.Data\PointOfSale.Data.csproj">
+      <Project>{6eb81bed-68f1-4748-b5a6-33a23b30844a}</Project>
+      <Name>PointOfSale.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\Other\Profit\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties ShouldAddDPIScalingManifest="False" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
