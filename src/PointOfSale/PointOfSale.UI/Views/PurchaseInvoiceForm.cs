@@ -346,7 +346,9 @@ namespace PointOfSale.UI.Views
                 {
                     InvoiceItem invcItem = new InvoiceItem()
                     {
+                        ProductCode = item.ProductCode,
                         ProductID = item.ProductID,
+                        ProductName = item.ProductName,
                         IsActive = 1,
                         Quantity = item.Quantity,
                         UnitPrice = item.PurchasePrice,

@@ -10,14 +10,14 @@ namespace PointOfSale.Data.Entities
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public decimal ProductPrice { get; set; }
+        public string ProductCode { get; set; }
+        public string UnitType { get; set; }
         public int IsActive { get; set; }
         public decimal Stock { get; set; }
         public string StockDate { get; set; }
-        public decimal ProductRawPrice { get; set; }
         public string ProductType { get; set; }
-        public string ProductCode { get; set; }
-        public string UnitType { get; set; }
-        
+        public decimal ProductRawPrice { get; set; }
+        public decimal ProductPrice { get; set; }
+
     }
 }

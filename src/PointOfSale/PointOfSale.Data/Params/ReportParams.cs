@@ -15,5 +15,6 @@ namespace PointOfSale.Data.Params
         public DateTime ToDate { get; set; }
         public int CustomerID { get; set; }
         public int ProductID { get; set; }
+        public string ProductName { get; set; }
     }
 }

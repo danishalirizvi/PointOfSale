@@ -19,10 +19,23 @@ namespace PointOfSale.UI.Views
     {
 
         ProductManager productManager;
+        int priceSum = 0, rawPriceSum = 0;
+
         public OnlyShowItemForm()
         {
             InitializeComponent();
             productManager = new ProductManager();
+        }
+
+        private void CalculateTotals()
+        {
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                priceSum += Convert.ToInt32(productsDataGridView.Rows[i].Cells[9].Value) * Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value);
+                rawPriceSum += Convert.ToInt32(productsDataGridView.Rows[i].Cells[8].Value) * Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value);
+            }
+            priceTotaallbl.Text = priceSum.ToString();
+            rawPriceTotallbl.Text = rawPriceSum.ToString();
         }
 
         private void LoadCombos()
@@ -52,6 +65,7 @@ namespace PointOfSale.UI.Views
 
             LoadProductGrid();
 
+            CalculateTotals();
         }
 
         private void txt_SrchProName_TextChanged(object sender, EventArgs e)
@@ -121,11 +135,12 @@ namespace PointOfSale.UI.Views
 
             productsDataGridView.DataSource = dt;
 
-            productsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //productsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             productsDataGridView.AllowUserToAddRows = false;
 
             productsDataGridView.Columns["IsActive"].Visible = false;
+            productsDataGridView.Columns["ProductID"].Visible = false;
             //productsDataGridView.Columns["IsBlocked"].Visible = false;
 
             emprtyGridCheck();
@@ -141,6 +156,16 @@ namespace PointOfSale.UI.Views
                 txtProductCode.Clear();
                 chk_Active.Checked = false;
             }
+        }
+
+        private void rawPriceTotallbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void priceTotaallbl_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void expenseBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -245,7 +270,7 @@ namespace PointOfSale.UI.Views
 
             //
 
-           
+
             //if (p == null && p.ProductID == Convert.ToInt32(productsDataGridView.CurrentRow.Cells["ProductID"]?.Value.ToString()))
             //{
             //    
@@ -274,6 +299,8 @@ namespace PointOfSale.UI.Views
 
             //LoadProductGrid();
         }
+
+
     }
 }
 

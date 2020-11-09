@@ -51,6 +51,9 @@
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.rawPriceTotallbl = new MetroFramework.Controls.MetroLabel();
+            this.priceTotaallbl = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -339,7 +342,7 @@
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2});
-            this.bindingNavigator1.Location = new System.Drawing.Point(746, 153);
+            this.bindingNavigator1.Location = new System.Drawing.Point(777, 75);
             this.bindingNavigator1.MoveFirstItem = null;
             this.bindingNavigator1.MoveLastItem = null;
             this.bindingNavigator1.MoveNextItem = null;
@@ -371,11 +374,48 @@
             this.toolStripButton2.Text = "UPDATE";
             this.toolStripButton2.Click += new System.EventHandler(this.expenseBindingNavigatorSaveItem_Click);
             // 
+            // rawPriceTotallbl
+            // 
+            this.rawPriceTotallbl.AutoSize = true;
+            this.rawPriceTotallbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.rawPriceTotallbl.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.rawPriceTotallbl.Location = new System.Drawing.Point(777, 173);
+            this.rawPriceTotallbl.Name = "rawPriceTotallbl";
+            this.rawPriceTotallbl.Size = new System.Drawing.Size(114, 25);
+            this.rawPriceTotallbl.TabIndex = 56;
+            this.rawPriceTotallbl.Text = "RawPriceTotal";
+            this.rawPriceTotallbl.Click += new System.EventHandler(this.rawPriceTotallbl_Click);
+            // 
+            // priceTotaallbl
+            // 
+            this.priceTotaallbl.AutoSize = true;
+            this.priceTotaallbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.priceTotaallbl.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.priceTotaallbl.Location = new System.Drawing.Point(909, 173);
+            this.priceTotaallbl.Name = "priceTotaallbl";
+            this.priceTotaallbl.Size = new System.Drawing.Size(83, 25);
+            this.priceTotaallbl.TabIndex = 57;
+            this.priceTotaallbl.Text = "PriceTotal";
+            this.priceTotaallbl.Click += new System.EventHandler(this.priceTotaallbl_Click);
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.Location = new System.Drawing.Point(704, 173);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(46, 25);
+            this.metroLabel2.TabIndex = 58;
+            this.metroLabel2.Text = "Total";
+            // 
             // OnlyShowItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 611);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.priceTotaallbl);
+            this.Controls.Add(this.rawPriceTotallbl);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.cmbUnitType);
             this.Controls.Add(this.cmbProductTypes);
@@ -428,5 +468,8 @@
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private MetroFramework.Controls.MetroLabel rawPriceTotallbl;
+        private MetroFramework.Controls.MetroLabel priceTotaallbl;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
     }
 }

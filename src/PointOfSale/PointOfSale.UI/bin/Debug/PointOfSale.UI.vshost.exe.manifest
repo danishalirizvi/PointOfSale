@@ -215,14 +215,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PointOfSale.Data.dll" size="142336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PointOfSale.Data.dll" size="143360">
       <assemblyIdentity name="PointOfSale.Data" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nq+9oQYOK2c+DoKVb1D16julKKmTMF5AB02jYZxqSYA=</dsig:DigestValue>
+        <dsig:DigestValue>fhFsNxR0l0fOi8fPo0rKC2WxOW7WiUnBtbtIEb89Ymg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -234,7 +234,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WChMSZqMiE2LMyfvdSTuHm3N88HCebi6Kw7Zsb3SNes=</dsig:DigestValue>
+        <dsig:DigestValue>UxjT2iM2aXIOFZC7wZTU7lKYYebu0ZdaaoZ9K3tVeXk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -286,11 +286,11 @@ namespace PointOfSale.Data.DataAccess
                     {
                         DateTime invoiceDate;
                         DateTime.TryParse(item.Date, out invoiceDate);
-                        if (param.ProductID != 0)
+                        if (param.ProductName != "All")
                         {
                             if ((DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) <= DateTime.Parse(param.ToDate.ToString("yyyy-MM-dd"))) &&
                             (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd"))) &&
-                             item.ProductID == param.ProductID
+                             item.Product == param.ProductName
                             )
 
                             {
@@ -439,15 +439,16 @@ namespace PointOfSale.Data.DataAccess
             try
             {
                 var invoiceItems = con.Query<InvoiceItem>("select * from InvoiceItem where InvoiceID = @InvoiceID", new { InvoiceID = id });
+                var stockDate = con.Query<string>("select InvoiceDate from Invoice where InvoiceID = @InvoiceID", new { InvoiceID = id });
                 if (invoiceItems != null && invoiceItems.Any())
                 {
                     foreach (var item in invoiceItems)
                     {
                         if (item.Quantity > 0)
                         {
-                            con.Query(@"UPDATE Product SET [Stock] = [Stock] + @Quantity, ProductPrice = @SalePrice, ProductRawPrice = @PurchasePrice
+                            con.Query(@"UPDATE Product SET [Stock] = [Stock] + @Quantity, ProductPrice = @SalePrice, ProductRawPrice = @PurchasePrice, StockDate = @StockDate
                                         WHERE ProductID = @ProductID",
-                            new { Quantity = item.Quantity, ProductID = item.ProductID, SalePrice = item.SalePrice, PurchasePrice = item.UnitPrice });
+                            new { Quantity = item.Quantity, ProductID = item.ProductID, SalePrice = item.SalePrice, PurchasePrice = item.UnitPrice, StockDate = stockDate });
                         }
                     }
                 }

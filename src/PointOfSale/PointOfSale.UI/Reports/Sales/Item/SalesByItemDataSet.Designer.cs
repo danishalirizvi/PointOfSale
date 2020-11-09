@@ -279,21 +279,23 @@ namespace PointOfSale.UI.Reports.Sales.Item {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SalesByItemReportViewDataTable : global::System.Data.TypedTableBase<SalesByItemReportViewRow> {
             
-            private global::System.Data.DataColumn columnInvoiceDate;
-            
-            private global::System.Data.DataColumn columnInvoiceNumber;
-            
-            private global::System.Data.DataColumn columnCustomerID;
-            
-            private global::System.Data.DataColumn columnQuantity;
+            private global::System.Data.DataColumn columnProduct;
             
             private global::System.Data.DataColumn columnUnitType;
             
+            private global::System.Data.DataColumn columnProductRawPrice;
+            
             private global::System.Data.DataColumn columnUnitPrice;
+            
+            private global::System.Data.DataColumn columnQuantity;
             
             private global::System.Data.DataColumn columnTotalPrice;
             
-            private global::System.Data.DataColumn columnProductID;
+            private global::System.Data.DataColumn columnInvoiceNumber;
+            
+            private global::System.Data.DataColumn columnCustomer;
+            
+            private global::System.Data.DataColumn columnDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -330,33 +332,9 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvoiceDateColumn {
+            public global::System.Data.DataColumn ProductColumn {
                 get {
-                    return this.columnInvoiceDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvoiceNumberColumn {
-                get {
-                    return this.columnInvoiceNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CustomerIDColumn {
-                get {
-                    return this.columnCustomerID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn QuantityColumn {
-                get {
-                    return this.columnQuantity;
+                    return this.columnProduct;
                 }
             }
             
@@ -370,9 +348,25 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ProductRawPriceColumn {
+                get {
+                    return this.columnProductRawPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn UnitPriceColumn {
                 get {
                     return this.columnUnitPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QuantityColumn {
+                get {
+                    return this.columnQuantity;
                 }
             }
             
@@ -386,9 +380,25 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ProductIDColumn {
+            public global::System.Data.DataColumn InvoiceNumberColumn {
                 get {
-                    return this.columnProductID;
+                    return this.columnInvoiceNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CustomerColumn {
+                get {
+                    return this.columnCustomer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
                 }
             }
             
@@ -429,17 +439,18 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SalesByItemReportViewRow AddSalesByItemReportViewRow(string InvoiceDate, string InvoiceNumber, long CustomerID, long Quantity, string UnitType, decimal UnitPrice, decimal TotalPrice, long ProductID) {
+            public SalesByItemReportViewRow AddSalesByItemReportViewRow(string Product, string UnitType, string ProductRawPrice, decimal UnitPrice, long Quantity, decimal TotalPrice, string InvoiceNumber, string Customer, string Date) {
                 SalesByItemReportViewRow rowSalesByItemReportViewRow = ((SalesByItemReportViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        InvoiceDate,
-                        InvoiceNumber,
-                        CustomerID,
-                        Quantity,
+                        Product,
                         UnitType,
+                        ProductRawPrice,
                         UnitPrice,
+                        Quantity,
                         TotalPrice,
-                        ProductID};
+                        InvoiceNumber,
+                        Customer,
+                        Date};
                 rowSalesByItemReportViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSalesByItemReportViewRow);
                 return rowSalesByItemReportViewRow;
@@ -462,39 +473,45 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnInvoiceDate = base.Columns["InvoiceDate"];
-                this.columnInvoiceNumber = base.Columns["InvoiceNumber"];
-                this.columnCustomerID = base.Columns["CustomerID"];
-                this.columnQuantity = base.Columns["Quantity"];
+                this.columnProduct = base.Columns["Product"];
                 this.columnUnitType = base.Columns["UnitType"];
+                this.columnProductRawPrice = base.Columns["ProductRawPrice"];
                 this.columnUnitPrice = base.Columns["UnitPrice"];
+                this.columnQuantity = base.Columns["Quantity"];
                 this.columnTotalPrice = base.Columns["TotalPrice"];
-                this.columnProductID = base.Columns["ProductID"];
+                this.columnInvoiceNumber = base.Columns["InvoiceNumber"];
+                this.columnCustomer = base.Columns["Customer"];
+                this.columnDate = base.Columns["Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnInvoiceDate = new global::System.Data.DataColumn("InvoiceDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceDate);
-                this.columnInvoiceNumber = new global::System.Data.DataColumn("InvoiceNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceNumber);
-                this.columnCustomerID = new global::System.Data.DataColumn("CustomerID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerID);
-                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQuantity);
+                this.columnProduct = new global::System.Data.DataColumn("Product", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProduct);
                 this.columnUnitType = new global::System.Data.DataColumn("UnitType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUnitType);
+                this.columnProductRawPrice = new global::System.Data.DataColumn("ProductRawPrice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductRawPrice);
                 this.columnUnitPrice = new global::System.Data.DataColumn("UnitPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUnitPrice);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
                 this.columnTotalPrice = new global::System.Data.DataColumn("TotalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalPrice);
-                this.columnProductID = new global::System.Data.DataColumn("ProductID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProductID);
-                this.columnInvoiceDate.MaxLength = 2147483647;
+                this.columnInvoiceNumber = new global::System.Data.DataColumn("InvoiceNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoiceNumber);
+                this.columnCustomer = new global::System.Data.DataColumn("Customer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
+                this.columnProduct.MaxLength = 2147483647;
+                this.columnUnitType.MaxLength = 2147483647;
+                this.columnProductRawPrice.MaxLength = 2147483647;
                 this.columnInvoiceNumber.AllowDBNull = false;
                 this.columnInvoiceNumber.MaxLength = 2147483647;
-                this.columnUnitType.MaxLength = 2147483647;
+                this.columnCustomer.MaxLength = 2147483647;
+                this.columnDate.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -637,60 +654,17 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string InvoiceDate {
+            public string Product {
                 get {
                     try {
-                        return ((string)(this[this.tableSalesByItemReportView.InvoiceDateColumn]));
+                        return ((string)(this[this.tableSalesByItemReportView.ProductColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceDate\' in table \'SalesByItemReportView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Product\' in table \'SalesByItemReportView\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSalesByItemReportView.InvoiceDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string InvoiceNumber {
-                get {
-                    return ((string)(this[this.tableSalesByItemReportView.InvoiceNumberColumn]));
-                }
-                set {
-                    this[this.tableSalesByItemReportView.InvoiceNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long CustomerID {
-                get {
-                    try {
-                        return ((long)(this[this.tableSalesByItemReportView.CustomerIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerID\' in table \'SalesByItemReportView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSalesByItemReportView.CustomerIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long Quantity {
-                get {
-                    try {
-                        return ((long)(this[this.tableSalesByItemReportView.QuantityColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'SalesByItemReportView\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSalesByItemReportView.QuantityColumn] = value;
+                    this[this.tableSalesByItemReportView.ProductColumn] = value;
                 }
             }
             
@@ -712,6 +686,23 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ProductRawPrice {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesByItemReportView.ProductRawPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductRawPrice\' in table \'SalesByItemReportView\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesByItemReportView.ProductRawPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal UnitPrice {
                 get {
                     try {
@@ -723,6 +714,22 @@ namespace PointOfSale.UI.Reports.Sales.Item {
                 }
                 set {
                     this[this.tableSalesByItemReportView.UnitPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long Quantity {
+                get {
+                    try {
+                        return ((long)(this[this.tableSalesByItemReportView.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'SalesByItemReportView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesByItemReportView.QuantityColumn] = value;
                 }
             }
             
@@ -744,54 +751,57 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long ProductID {
+            public string InvoiceNumber {
+                get {
+                    return ((string)(this[this.tableSalesByItemReportView.InvoiceNumberColumn]));
+                }
+                set {
+                    this[this.tableSalesByItemReportView.InvoiceNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Customer {
                 get {
                     try {
-                        return ((long)(this[this.tableSalesByItemReportView.ProductIDColumn]));
+                        return ((string)(this[this.tableSalesByItemReportView.CustomerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductID\' in table \'SalesByItemReportView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer\' in table \'SalesByItemReportView\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSalesByItemReportView.ProductIDColumn] = value;
+                    this[this.tableSalesByItemReportView.CustomerColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInvoiceDateNull() {
-                return this.IsNull(this.tableSalesByItemReportView.InvoiceDateColumn);
+            public string Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesByItemReportView.DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'SalesByItemReportView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesByItemReportView.DateColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInvoiceDateNull() {
-                this[this.tableSalesByItemReportView.InvoiceDateColumn] = global::System.Convert.DBNull;
+            public bool IsProductNull() {
+                return this.IsNull(this.tableSalesByItemReportView.ProductColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCustomerIDNull() {
-                return this.IsNull(this.tableSalesByItemReportView.CustomerIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCustomerIDNull() {
-                this[this.tableSalesByItemReportView.CustomerIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsQuantityNull() {
-                return this.IsNull(this.tableSalesByItemReportView.QuantityColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetQuantityNull() {
-                this[this.tableSalesByItemReportView.QuantityColumn] = global::System.Convert.DBNull;
+            public void SetProductNull() {
+                this[this.tableSalesByItemReportView.ProductColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -808,6 +818,18 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProductRawPriceNull() {
+                return this.IsNull(this.tableSalesByItemReportView.ProductRawPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProductRawPriceNull() {
+                this[this.tableSalesByItemReportView.ProductRawPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsUnitPriceNull() {
                 return this.IsNull(this.tableSalesByItemReportView.UnitPriceColumn);
             }
@@ -816,6 +838,18 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUnitPriceNull() {
                 this[this.tableSalesByItemReportView.UnitPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableSalesByItemReportView.QuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQuantityNull() {
+                this[this.tableSalesByItemReportView.QuantityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -832,14 +866,26 @@ namespace PointOfSale.UI.Reports.Sales.Item {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProductIDNull() {
-                return this.IsNull(this.tableSalesByItemReportView.ProductIDColumn);
+            public bool IsCustomerNull() {
+                return this.IsNull(this.tableSalesByItemReportView.CustomerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProductIDNull() {
-                this[this.tableSalesByItemReportView.ProductIDColumn] = global::System.Convert.DBNull;
+            public void SetCustomerNull() {
+                this[this.tableSalesByItemReportView.CustomerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateNull() {
+                return this.IsNull(this.tableSalesByItemReportView.DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateNull() {
+                this[this.tableSalesByItemReportView.DateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1002,14 +1048,15 @@ namespace PointOfSale.UI.Reports.Sales.Item.SalesByCustomerDataSetTableAdapters 
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "SalesByItemReportView";
-            tableMapping.ColumnMappings.Add("InvoiceDate", "InvoiceDate");
-            tableMapping.ColumnMappings.Add("InvoiceNumber", "InvoiceNumber");
-            tableMapping.ColumnMappings.Add("CustomerID", "CustomerID");
-            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
+            tableMapping.ColumnMappings.Add("Product", "Product");
             tableMapping.ColumnMappings.Add("UnitType", "UnitType");
+            tableMapping.ColumnMappings.Add("ProductRawPrice", "ProductRawPrice");
             tableMapping.ColumnMappings.Add("UnitPrice", "UnitPrice");
+            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("TotalPrice", "TotalPrice");
-            tableMapping.ColumnMappings.Add("ProductID", "ProductID");
+            tableMapping.ColumnMappings.Add("InvoiceNumber", "InvoiceNumber");
+            tableMapping.ColumnMappings.Add("Customer", "Customer");
+            tableMapping.ColumnMappings.Add("Date", "Date");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1027,8 +1074,8 @@ namespace PointOfSale.UI.Reports.Sales.Item.SalesByCustomerDataSetTableAdapters 
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [InvoiceDate], [InvoiceNumber], [CustomerID], [Quantity], [UnitType], [Uni" +
-                "tPrice], [TotalPrice], [ProductID] FROM [SalesByItemReportView]";
+            this._commandCollection[0].CommandText = "SELECT [Product], [UnitType], [ProductRawPrice], [UnitPrice], [Quantity], [TotalP" +
+                "rice], [InvoiceNumber], [Customer], [Date] FROM [SalesByItemReportView]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

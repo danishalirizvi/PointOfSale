@@ -9,6 +9,7 @@ namespace PointOfSale.UI.ViewModel
     public class ReportVM
     {
         public int ProductID { get; set; }
+        public string Product { get; set; }
         public string Customer { get; set; }
         public int CustomerID { get; set; }
         public string Mobile { get; set; }
@@ -25,5 +26,6 @@ namespace PointOfSale.UI.ViewModel
         public decimal TotalPrice { get; set; }
         public int PaymentMethodID { get; set; }
         public string PaymentMethod { get; set; }
+        public decimal ProductRawPrice { get; set; }
     }
 }

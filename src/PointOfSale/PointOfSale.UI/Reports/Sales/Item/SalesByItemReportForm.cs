@@ -40,7 +40,7 @@ namespace PointOfSale.UI.Reports.Sales.All
                 ReportParams param = new ReportParams();
                 param.FromDate = fromDatePicker.Value;
                 param.ToDate = toDatePicker.Value;
-                param.ProductID = Convert.ToInt32(itemPicker.SelectedValue.ToString());
+                param.ProductName = itemPicker.SelectedValue.ToString();
 
                 var data = _invoiceDao.GetInvoicesByItem(param);
 
@@ -82,7 +82,7 @@ namespace PointOfSale.UI.Reports.Sales.All
             var converter = new ListtoDataTableConverter();
             var dt = converter.ToDataTable(types);
             itemPicker.DataSource = dt;
-            itemPicker.ValueMember = "ProductID";
+            itemPicker.ValueMember = "ProductName";
             itemPicker.DisplayMember = "ProductName";
             itemPicker.Text = "All";
 
