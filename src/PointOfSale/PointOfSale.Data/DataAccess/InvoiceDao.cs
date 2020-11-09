@@ -53,6 +53,45 @@ namespace PointOfSale.Data.DataAccess
             }
         }
 
+        public List<ReportVM> GetInvoicesBySalesPersons(ReportParams param)
+        {
+            using (IDbConnection con = new SQLiteConnection(_connectionstring))
+            {
+                List<ReportVM> data = new List<ReportVM>();
+                var output = con.Query<ReportVM>(@"SELECT * from SalesBySalesPersonReportView");
+                if (output?.ToList().Count > 0)
+                {
+                    data = new List<ReportVM>();
+                    foreach (var item in output.ToList())
+                    {
+                        DateTime invoiceDate;
+                        DateTime.TryParse(item.Date, out invoiceDate);
+                        if (item.SalesPersonID != 0)
+                        {
+                            if ((DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) <= DateTime.Parse(param.ToDate.ToString("yyyy-MM-dd"))) &&
+                            (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd")))
+                            && item.SalesPersonID == param.SalesPersonID)
+
+                            {
+                                data.Add(item);
+                            }
+                        }
+                        else
+                        {
+                            if ((DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) <= DateTime.Parse(param.ToDate.ToString("yyyy-MM-dd"))) &&
+                            (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd"))))
+
+                            {
+                                data.Add(item);
+                            }
+                        }
+
+                    }
+                }
+                return data.ToList();
+            }
+        }
+
         public Invoice GetInvoiceWithItemsByID(object invoiceID)
         {
             using (IDbConnection con = new SQLiteConnection(_connectionstring))
@@ -78,6 +117,36 @@ namespace PointOfSale.Data.DataAccess
             }
 
             return null;
+        }
+
+        public List<ReportVM> GetInvoicesByDiscount(ReportParams param)
+        {
+            using (IDbConnection con = new SQLiteConnection(_connectionstring))
+            {
+                List<ReportVM> data = new List<ReportVM>();
+                var output = con.Query<ReportVM>(@"SELECT * from SalesByPercentDiscountReportView");
+                if (output?.ToList().Count > 0)
+                {
+                    data = new List<ReportVM>();
+                    foreach (var item in output.ToList())
+                    {
+                        DateTime invoiceDate;
+                        DateTime.TryParse(item.Date, out invoiceDate);
+                        if ((DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) <= DateTime.Parse(param.ToDate.ToString("yyyy-MM-dd"))) &&
+                            (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd")))
+                            && item.DiscountPercentage == param.DiscountPercentage)
+
+                        {
+                            data.Add(item);
+                        }
+                    }
+                }
+                //var output = con.Query<ReportVM>(@"SELECT * from AllSalesReportView where
+                //        strftime('%d-%m-%Y %H:%M:%S', InvoiceDate)>=@FromDate
+                //        and strftime('%d-%m-%Y %H:%M:%S', InvoiceDate)<=@ToDate",
+                //        new { FromDate = param.FromDate, ToDate = param.ToDate });
+                return data.ToList();
+            }
         }
 
         public void CancelInvoice(int refId)

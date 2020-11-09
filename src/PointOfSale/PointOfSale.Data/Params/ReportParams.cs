@@ -16,5 +16,7 @@ namespace PointOfSale.Data.Params
         public int CustomerID { get; set; }
         public int ProductID { get; set; }
         public string ProductName { get; set; }
+        public decimal DiscountPercentage { get; set; }
+        public int SalesPersonID { get; set; }
     }
 }

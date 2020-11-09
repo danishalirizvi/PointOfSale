@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SalesByCustomerDataSet" targetNamespace="http://tempuri.org/SalesByCustomerDataSet.xsd" xmlns:mstns="http://tempuri.org/SalesByCustomerDataSet.xsd" xmlns="http://tempuri.org/SalesByCustomerDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PointOfSaleConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PointOfSaleConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PointOfSale.UI.Properties.Settings.GlobalReference.Default.PointOfSaleConnectionString" Provider="System.Data.SQLite.EF6" />
+          <Connection ConnectionStringObject="data source=D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\DataContext\PointOfSale.db" IsAppSettingsProperty="false" Modifier="Assembly" Name="SQLite [PointOfSale]" ParameterPrefix="@" Provider="System.Data.SQLite.EF6" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SalesByPercentDiscountReportViewTableAdapter" GeneratorDataComponentClassName="SalesByPercentDiscountReportViewTableAdapter" Name="SalesByPercentDiscountReportView" UserDataComponentName="SalesByPercentDiscountReportViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SQLite [PointOfSale]" DbObjectName="main.SalesByPercentDiscountReportView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [InvoiceNumber], [Total], [DiscountPercentage], [DiscountPercentageAmount], [FixedDiscount], [Discount], [TotalToPay], [Received], [ChangeAmount], [Date] FROM [SalesByPercentDiscountReportView]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="InvoiceNumber" DataSetColumn="InvoiceNumber" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="DiscountPercentage" DataSetColumn="DiscountPercentage" />
+              <Mapping SourceColumn="DiscountPercentageAmount" DataSetColumn="DiscountPercentageAmount" />
+              <Mapping SourceColumn="FixedDiscount" DataSetColumn="FixedDiscount" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="TotalToPay" DataSetColumn="TotalToPay" />
+              <Mapping SourceColumn="Received" DataSetColumn="Received" />
+              <Mapping SourceColumn="ChangeAmount" DataSetColumn="ChangeAmount" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SalesByCustomerDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SalesByCustomerDataSet" msprop:Generator_UserDSName="SalesByCustomerDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SalesByPercentDiscountReportView" msprop:Generator_TableClassName="SalesByPercentDiscountReportViewDataTable" msprop:Generator_TableVarName="tableSalesByPercentDiscountReportView" msprop:Generator_TablePropName="SalesByPercentDiscountReportView" msprop:Generator_RowDeletingName="SalesByPercentDiscountReportViewRowDeleting" msprop:Generator_RowChangingName="SalesByPercentDiscountReportViewRowChanging" msprop:Generator_RowEvHandlerName="SalesByPercentDiscountReportViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesByPercentDiscountReportViewRowDeleted" msprop:Generator_UserTableName="SalesByPercentDiscountReportView" msprop:Generator_RowChangedName="SalesByPercentDiscountReportViewRowChanged" msprop:Generator_RowEvArgName="SalesByPercentDiscountReportViewRowChangeEvent" msprop:Generator_RowClassName="SalesByPercentDiscountReportViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InvoiceNumber" msprop:Generator_ColumnVarNameInTable="columnInvoiceNumber" msprop:Generator_ColumnPropNameInRow="InvoiceNumber" msprop:Generator_ColumnPropNameInTable="InvoiceNumberColumn" msprop:Generator_UserColumnName="InvoiceNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DiscountPercentage" msprop:Generator_ColumnVarNameInTable="columnDiscountPercentage" msprop:Generator_ColumnPropNameInRow="DiscountPercentage" msprop:Generator_ColumnPropNameInTable="DiscountPercentageColumn" msprop:Generator_UserColumnName="DiscountPercentage" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DiscountPercentageAmount" msprop:Generator_ColumnVarNameInTable="columnDiscountPercentageAmount" msprop:Generator_ColumnPropNameInRow="DiscountPercentageAmount" msprop:Generator_ColumnPropNameInTable="DiscountPercentageAmountColumn" msprop:Generator_UserColumnName="DiscountPercentageAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FixedDiscount" msprop:Generator_ColumnVarNameInTable="columnFixedDiscount" msprop:Generator_ColumnPropNameInRow="FixedDiscount" msprop:Generator_ColumnPropNameInTable="FixedDiscountColumn" msprop:Generator_UserColumnName="FixedDiscount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalToPay" msprop:Generator_ColumnVarNameInTable="columnTotalToPay" msprop:Generator_ColumnPropNameInRow="TotalToPay" msprop:Generator_ColumnPropNameInTable="TotalToPayColumn" msprop:Generator_UserColumnName="TotalToPay" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Received" msprop:Generator_ColumnVarNameInTable="columnReceived" msprop:Generator_ColumnPropNameInRow="Received" msprop:Generator_ColumnPropNameInTable="ReceivedColumn" msprop:Generator_UserColumnName="Received" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChangeAmount" msprop:Generator_ColumnVarNameInTable="columnChangeAmount" msprop:Generator_ColumnPropNameInRow="ChangeAmount" msprop:Generator_ColumnPropNameInTable="ChangeAmountColumn" msprop:Generator_UserColumnName="ChangeAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -68,6 +68,11 @@ namespace PointOfSale.UI.Managers
             employeeDao.addSalesPerson(salesperson);
         }
 
+        internal List<SalesPerson> GetAllSalePersons()
+        {
+            return employeeDao.getAllSalePersons();
+        }
+
         public bool AddLoginUser(LoginUser user)
         {
             LoginUser l = employeeDao.getLoginUsers(user.Username);

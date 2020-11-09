@@ -27,5 +27,11 @@ namespace PointOfSale.UI.ViewModel
         public int PaymentMethodID { get; set; }
         public string PaymentMethod { get; set; }
         public decimal ProductRawPrice { get; set; }
+        public decimal DiscountPercentage { get; set; }
+        public decimal DiscountPercentageAmount { get; set; }
+        public decimal FixedDiscount { get; set; }
+        public decimal ChangeAmount { get; set; }
+        public string SalesPerson { get; set; }
+        public int SalesPersonID { get; set; }
     }
 }

@@ -324,3 +324,9 @@ D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.pdb
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.Views.AddSalesPersonForm.resources
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.Views.ManageSalesPersonForm.resources
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\DataContext\PointOfSale.db
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.Reports.Sales.All.SalesByPercentDiscountReportForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Sales\PercentDiscount\SalesByPercentDiscountReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Sales\PercentDiscount\SalesByPercentDiscountReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.Reports.Sales.All.SalesBySalesPersonReportForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Sales\SalesPersonReport\SalesBySalesPersonReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Sales\SalesPersonReport\SalesBySalesPersonReport.cs

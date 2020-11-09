@@ -366,5 +366,17 @@ namespace PointOfSale.UI.Views
             ManageSalesPersonForm form = new ManageSalesPersonForm();
             form.ShowDialog();
         }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            SalesByPercentDiscountReportForm form = new SalesByPercentDiscountReportForm();
+            form.ShowDialog();
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            SalesBySalesPersonReportForm form = new SalesBySalesPersonReportForm();
+            form.ShowDialog();
+        }
     }
 }

@@ -79,6 +79,7 @@
             this.salesByCashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesByCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesByProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierReportDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.allSupplierPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allOutstandingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,6 +120,7 @@
             this.metroTileSettings = new MetroFramework.Controls.MetroTile();
             this.activeUserLabel = new MetroFramework.Controls.MetroLabel();
             this.activeUserHeadingLabel = new MetroFramework.Controls.MetroLabel();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.NavigationBar.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -702,7 +704,9 @@
             this.allSalesReportToolStripMenuItem,
             this.salesByCashToolStripMenuItem,
             this.salesByCustomerToolStripMenuItem,
-            this.salesByProductToolStripMenuItem});
+            this.salesByProductToolStripMenuItem,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem10});
             this.salesReportDropDownButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesReportDropDownButton.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.salesReportDropDownButton.Image = global::PointOfSale.UI.Properties.Resources.menu_report;
@@ -723,7 +727,7 @@
             this.allSalesReportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("allSalesReportToolStripMenuItem.Image")));
             this.allSalesReportToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.allSalesReportToolStripMenuItem.Name = "allSalesReportToolStripMenuItem";
-            this.allSalesReportToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.allSalesReportToolStripMenuItem.Size = new System.Drawing.Size(308, 24);
             this.allSalesReportToolStripMenuItem.Text = "All Sales Report";
             this.allSalesReportToolStripMenuItem.Click += new System.EventHandler(this.allSalesReportToolStripMenuItem_Click);
             // 
@@ -734,7 +738,7 @@
             this.salesByCashToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salesByCashToolStripMenuItem.Image")));
             this.salesByCashToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.salesByCashToolStripMenuItem.Name = "salesByCashToolStripMenuItem";
-            this.salesByCashToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.salesByCashToolStripMenuItem.Size = new System.Drawing.Size(308, 24);
             this.salesByCashToolStripMenuItem.Text = "Sales By Payment Type";
             this.salesByCashToolStripMenuItem.Click += new System.EventHandler(this.salesByCashToolStripMenuItem_Click);
             // 
@@ -745,7 +749,7 @@
             this.salesByCustomerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salesByCustomerToolStripMenuItem.Image")));
             this.salesByCustomerToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.salesByCustomerToolStripMenuItem.Name = "salesByCustomerToolStripMenuItem";
-            this.salesByCustomerToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.salesByCustomerToolStripMenuItem.Size = new System.Drawing.Size(308, 24);
             this.salesByCustomerToolStripMenuItem.Text = "Sales By Customer";
             this.salesByCustomerToolStripMenuItem.Click += new System.EventHandler(this.salesByCustomerToolStripMenuItem_Click);
             // 
@@ -756,9 +760,20 @@
             this.salesByProductToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salesByProductToolStripMenuItem.Image")));
             this.salesByProductToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.salesByProductToolStripMenuItem.Name = "salesByProductToolStripMenuItem";
-            this.salesByProductToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.salesByProductToolStripMenuItem.Size = new System.Drawing.Size(308, 24);
             this.salesByProductToolStripMenuItem.Text = "Sales By Item";
             this.salesByProductToolStripMenuItem.Click += new System.EventHandler(this.salesByProductToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
+            this.toolStripMenuItem9.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(308, 24);
+            this.toolStripMenuItem9.Text = "Sales By Discount Percentage";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // supplierReportDropDownButton
             // 
@@ -1308,6 +1323,17 @@
             this.activeUserHeadingLabel.TabIndex = 33;
             this.activeUserHeadingLabel.Text = "Active User :";
             // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
+            this.toolStripMenuItem10.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(308, 24);
+            this.toolStripMenuItem10.Text = "Sales By SalePerson";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1438,5 +1464,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
     }
 }
