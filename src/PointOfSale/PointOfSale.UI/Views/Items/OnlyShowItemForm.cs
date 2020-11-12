@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.Configuration;
 using PointOfSale.UI.Managers;
 using PointOfSale.Data.Entities;
 using PointOfSale.UI.Helper;
@@ -93,6 +87,10 @@ namespace PointOfSale.UI.Views
                 cmbProductTypes.SelectedValue = productsDataGridView.CurrentRow.Cells["ProductType"]?.Value.ToString();
                 cmbUnitType.SelectedItem = productsDataGridView.CurrentRow.Cells["UnitType"]?.Value.ToString();
                 txtProductCode.Text = productsDataGridView.CurrentRow.Cells["ProductCode"]?.Value.ToString();
+                txtReorder.Text = productsDataGridView.CurrentRow.Cells["ReOrderLevel"]?.Value.ToString();
+                txtSalePrice.Text = productsDataGridView.CurrentRow.Cells["ProductPrice"]?.Value.ToString();
+                txtPurchasePrice.Text = productsDataGridView.CurrentRow.Cells["ProductRawPrice"]?.Value.ToString();
+
                 if (productsDataGridView.CurrentRow.Cells["IsActive"]?.Value.ToString() == "1")
                 {
                     chk_Active.Checked = true;
@@ -100,6 +98,19 @@ namespace PointOfSale.UI.Views
                 else if (productsDataGridView.CurrentRow.Cells["IsActive"]?.Value.ToString() == "0")
                 {
                     chk_Active.Checked = false;
+                }
+
+                if (productsDataGridView.CurrentRow.Cells["Gift"]?.Value.ToString() == "1")
+                {
+                    chk_Gift.Checked = true;
+                    txtSalePrice.Enabled = false;
+                    txtPurchasePrice.Enabled = false;
+                }
+                else if (productsDataGridView.CurrentRow.Cells["Gift"]?.Value.ToString() == "0")
+                {
+                    chk_Gift.Checked = false;
+                    txtSalePrice.Enabled = true;
+                    txtPurchasePrice.Enabled = true;
                 }
             }
         }
@@ -129,17 +140,17 @@ namespace PointOfSale.UI.Views
         private void populateGrid()
         {
             DataTable dt = new DataTable();
-            List<Product> product = productManager.GetProducts();
+            List<Product> product = productManager.GetAllProducts();
             ListtoDataTableConverter converter = new ListtoDataTableConverter();
             dt = converter.ToDataTable(product);
 
             productsDataGridView.DataSource = dt;
 
-            //productsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            productsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             productsDataGridView.AllowUserToAddRows = false;
 
-            productsDataGridView.Columns["IsActive"].Visible = false;
+            //productsDataGridView.Columns["IsActive"].Visible = false;
             productsDataGridView.Columns["ProductID"].Visible = false;
             //productsDataGridView.Columns["IsBlocked"].Visible = false;
 
@@ -155,17 +166,9 @@ namespace PointOfSale.UI.Views
                 cmbUnitType.SelectedIndex = -1;
                 txtProductCode.Clear();
                 chk_Active.Checked = false;
+                chk_Gift.Checked = false;
+                txtReorder.Clear();
             }
-        }
-
-        private void rawPriceTotallbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void priceTotaallbl_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void expenseBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -196,6 +199,36 @@ namespace PointOfSale.UI.Views
                 MetroFramework.MetroMessageBox.Show(this, "Item Type is Required", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbUnitType.Focus();
                 return;
+            }
+
+            if (!string.IsNullOrEmpty(txtReorder.Text))
+            {
+                if (!Validators.numericOnly(txtReorder.Text))
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "ReOrder Level not Valid", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtReorder.Focus();
+                    return;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(txtSalePrice.Text))
+            {
+                if (!Validators.numericOnly(txtSalePrice.Text))
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Sale Price not Valid", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtReorder.Focus();
+                    return;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(txtPurchasePrice.Text))
+            {
+                if (!Validators.numericOnly(txtPurchasePrice.Text))
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Purchase Price not Valid", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtReorder.Focus();
+                    return;
+                }
             }
 
             int productID = Convert.ToInt32(productsDataGridView.CurrentRow.Cells["ProductID"]?.Value.ToString());
@@ -243,7 +276,10 @@ namespace PointOfSale.UI.Views
                         ProductName = txt_ItemName.Text,
                         ProductCode = txtProductCode.Text,
                         UnitType = cmbUnitType.SelectedItem?.ToString(),
-                        ProductType = cmbProductTypes.SelectedValue.ToString()
+                        ProductType = cmbProductTypes.SelectedValue.ToString(),
+                        ProductPrice = string.IsNullOrEmpty(txtSalePrice.Text.ToString()) ? 0 : Convert.ToInt32(txtSalePrice.Text.ToString()),
+                        ProductRawPrice = string.IsNullOrEmpty(txtPurchasePrice.Text.ToString()) ? 0 : Convert.ToInt32(txtPurchasePrice.Text.ToString()),
+                        ReOrderLevel = string.IsNullOrEmpty(txtReorder.Text.ToString()) ? 0 : Convert.ToInt32(txtReorder.Text.ToString())
                     };
                     if (chk_Active.CheckState == CheckState.Checked)
                     {
@@ -253,6 +289,56 @@ namespace PointOfSale.UI.Views
                     {
                         product.IsActive = 0;
                     }
+
+                    if (chk_Gift.CheckState == CheckState.Checked)
+                    {
+                        product.Gift = 1;
+                    }
+                    else if (chk_Gift.CheckState == CheckState.Unchecked)
+                    {
+                        product.Gift = 0;
+                    }
+
+                    if (chk_Gift.CheckState == CheckState.Checked)
+                    {
+                        product.ProductPrice = 0;
+                        product.ProductRawPrice = 0;
+                    }
+
+
+                    //bool currentState;
+
+                    //if (productsDataGridView.CurrentRow.Cells["Gift"]?.Value.ToString() == "1")
+                    //{
+                    //    currentState = true;
+                    //}
+                    //else
+                    //{
+                    //    currentState = false;
+                    //}
+
+                    //if ((chk_Gift.CheckState == CheckState.Checked && currentState) ||
+                    //    (chk_Gift.CheckState == CheckState.Unchecked && !currentState))
+                    //{
+                    //    product.ProductRawPrice = Convert.ToDecimal(productsDataGridView.CurrentRow.Cells["ProductRawPrice"]?.Value.ToString());
+                    //    product.ProductPrice = Convert.ToDecimal(productsDataGridView.CurrentRow.Cells["ProductPrice"]?.Value.ToString());
+                    //}
+                    //else
+                    //{
+                    //    product.ProductRawPrice = 0;
+                    //    product.ProductPrice = 0;
+                    //}
+
+                    //if ((string.IsNullOrEmpty(txtSalePrice.Text) ? 0 : Convert.ToInt32(txtSalePrice.Text)) !=
+                    //    Convert.ToDecimal(productsDataGridView.CurrentRow.Cells["ProductPrice"]?.Value.ToString()))
+                    //{
+                    //    product.ProductPrice = string.IsNullOrEmpty(txtSalePrice.Text.ToString()) ? 0 : Convert.ToInt32(txtSalePrice.Text.ToString());
+                    //}
+                    //else
+                    //{
+                    //    product.ProductRawPrice = 0;
+                    //    product.ProductPrice = 0;
+                    //}
 
                     productManager.UpdateProduct(product);
                     MetroFramework.MetroMessageBox.Show(this, "Item Updated Successfully ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);

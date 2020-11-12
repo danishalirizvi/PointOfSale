@@ -215,26 +215,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PointOfSale.Data.dll" size="145408">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PointOfSale.Data.dll" size="151040">
       <assemblyIdentity name="PointOfSale.Data" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5QfVlXybbXw1EwjUv3A0Pb3+U00KISwcxZRJjNF5Lzg=</dsig:DigestValue>
+        <dsig:DigestValue>yduSXbBddzW4nFg5OgYFookHWlDPR5PU4PP+hmbwOqs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PointOfSale.UI.exe" size="4548096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PointOfSale.UI.exe" size="4723200">
       <assemblyIdentity name="PointOfSale.UI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0Kj/zNf4ldFJQTR/L35C8VcGlG5xI1FxY4IbhTlFXzM=</dsig:DigestValue>
+        <dsig:DigestValue>CjlKLqjFa7a5hfZRecNwfjdFxTdh4OVCiIPI4dye0kk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -826,22 +826,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="DataContext\PointOfSale.db" size="172032">
+  <file name="DataContext\PointOfSale.db" size="180224">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>yKzgzFG+GduPPAtRze6tHQ/2UhJdX79iwFuu8yp0zJw=</dsig:DigestValue>
+      <dsig:DigestValue>gT2z7Wq+NQO5VELYUvMvmLOcvOPtoUImFpMgt+/UNSs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="PointOfSale.UI.exe.config" size="1967">
+  <file name="PointOfSale.UI.exe.config" size="1634">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DJzboOUX+qGC+kulKaJZJLRhxkhL9VQo8zQcnejIg7M=</dsig:DigestValue>
+      <dsig:DigestValue>CD64hO4iEnL33HzB4uSHA5KEXih8+rrRdx0utLZbB4w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Reports\Other\ExepnseByCategory\ExpenseByCategoryReport.rpt" size="16384">
@@ -859,7 +859,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>d/EREUWyZsQH6lpx0ZhSpKa5sxmZNO3H4/NGCqr0JS8=</dsig:DigestValue>
+      <dsig:DigestValue>Yv58eKzOzaWjwOH8WMHUKG3ec9m7D2pubrCTtQ83Xa4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\A4_bill.png" size="144632">

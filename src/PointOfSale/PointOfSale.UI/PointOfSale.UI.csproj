@@ -442,6 +442,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Other\Profit\ProfitDataSet.Designer.cs">
+      <DependentUpon>ProfitDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Other\Profit\ProfitReport.cs">
+      <DependentUpon>ProfitReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Other\Profit\ProfitReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Other\Profit\ProfitReportForm.Designer.cs">
+      <DependentUpon>ProfitReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Other\ReOrderReport\ReOrderDataSet.Designer.cs">
+      <DependentUpon>ReOrderDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Other\ReOrderReport\ReOrderReport.cs">
+      <DependentUpon>ReOrderReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Other\ReOrderReport\ReOrderReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Other\ReOrderReport\ReOrderReportForm.Designer.cs">
+      <DependentUpon>ReOrderReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Other\Supplier\SupplierReport.cs">
       <DependentUpon>SupplierReport.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -606,6 +642,9 @@
     </Compile>
     <Compile Include="Views\AddSalesPersonForm.designer.cs">
       <DependentUpon>AddSalesPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvoiceDesk\InvoiceDataSet.cs">
+      <DependentUpon>InvoiceDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Views\InvoiceDesk\InvoiceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -911,6 +950,22 @@
     <EmbeddedResource Include="Reports\Other\Item\ItemReportForm.resx">
       <DependentUpon>ItemReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Profit\ProfitReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProfitReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\Profit\ProfitReportForm.resx">
+      <DependentUpon>ProfitReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\ReOrderReport\ReOrderReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReOrderReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Other\ReOrderReport\ReOrderReportForm.resx">
+      <DependentUpon>ReOrderReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Other\Supplier\SupplierReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SupplierReport.cs</LastGenOutput>
@@ -1110,6 +1165,28 @@
     <None Include="Reports\Other\Item\ProductDataSet.xss">
       <DependentUpon>ProductDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Reports\Other\Profit\ProfitDataSet.xsc">
+      <DependentUpon>ProfitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\Profit\ProfitDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProfitDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reports\Other\Profit\ProfitDataSet.xss">
+      <DependentUpon>ProfitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\ReOrderReport\ReOrderDataSet.xsc">
+      <DependentUpon>ReOrderDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Other\ReOrderReport\ReOrderDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReOrderDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reports\Other\ReOrderReport\ReOrderDataSet.xss">
+      <DependentUpon>ReOrderDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Reports\Other\Supplier\SuppliersDataSet.xsc">
       <DependentUpon>SuppliersDataSet.xsd</DependentUpon>
     </None>
@@ -1236,9 +1313,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\Other\Profit\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

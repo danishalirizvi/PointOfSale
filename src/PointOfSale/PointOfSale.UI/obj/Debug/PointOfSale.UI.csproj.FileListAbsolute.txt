@@ -330,3 +330,9 @@ D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Sales\PercentDis
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.Reports.Sales.All.SalesBySalesPersonReportForm.resources
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Sales\SalesPersonReport\SalesBySalesPersonReport.rpt
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Sales\SalesPersonReport\SalesBySalesPersonReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Other\Profit\ProfitReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Other\Profit\ProfitReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.Reports.Sales.All.ProfitReportForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Other\ReOrderReport\ReOrderReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\Reports\Other\ReOrderReport\ReOrderReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Debug\PointOfSale.UI.Reports.Sales.All.ReOrderReportForm.resources

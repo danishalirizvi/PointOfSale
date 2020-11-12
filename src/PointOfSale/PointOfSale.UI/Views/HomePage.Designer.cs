@@ -80,11 +80,14 @@
             this.salesByCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesByProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierReportDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.allSupplierPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allOutstandingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allSupplierPaymentByIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otherReportDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.itemReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allExpenseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,7 +123,6 @@
             this.metroTileSettings = new MetroFramework.Controls.MetroTile();
             this.activeUserLabel = new MetroFramework.Controls.MetroLabel();
             this.activeUserHeadingLabel = new MetroFramework.Controls.MetroLabel();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.NavigationBar.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -775,6 +777,17 @@
             this.toolStripMenuItem9.Text = "Sales By Discount Percentage";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
+            this.toolStripMenuItem10.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(308, 24);
+            this.toolStripMenuItem10.Text = "Sales By SalePerson";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
+            // 
             // supplierReportDropDownButton
             // 
             this.supplierReportDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -813,6 +826,7 @@
             this.allOutstandingReportToolStripMenuItem.Name = "allOutstandingReportToolStripMenuItem";
             this.allOutstandingReportToolStripMenuItem.Size = new System.Drawing.Size(257, 24);
             this.allOutstandingReportToolStripMenuItem.Text = "All Accounts Payable";
+            this.allOutstandingReportToolStripMenuItem.Visible = false;
             // 
             // allSupplierPaymentByIDToolStripMenuItem
             // 
@@ -823,10 +837,13 @@
             this.allSupplierPaymentByIDToolStripMenuItem.Name = "allSupplierPaymentByIDToolStripMenuItem";
             this.allSupplierPaymentByIDToolStripMenuItem.Size = new System.Drawing.Size(257, 24);
             this.allSupplierPaymentByIDToolStripMenuItem.Text = "Supplier Payment By ID";
+            this.allSupplierPaymentByIDToolStripMenuItem.Visible = false;
             // 
             // otherReportDropDownButton
             // 
             this.otherReportDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem12,
             this.itemReportsToolStripMenuItem,
             this.supplierToolStripMenuItem,
             this.allExpenseReportToolStripMenuItem,
@@ -849,6 +866,28 @@
             this.otherReportDropDownButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.otherReportDropDownButton.Click += new System.EventHandler(this.otherReportDropDownButton_Click);
             // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripMenuItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem11.Image")));
+            this.toolStripMenuItem11.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(243, 24);
+            this.toolStripMenuItem11.Text = "Profit Report";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripMenuItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem12.Image")));
+            this.toolStripMenuItem12.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(243, 24);
+            this.toolStripMenuItem12.Text = "ReOrder Report";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
+            // 
             // itemReportsToolStripMenuItem
             // 
             this.itemReportsToolStripMenuItem.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -857,7 +896,7 @@
             this.itemReportsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.itemReportsToolStripMenuItem.Name = "itemReportsToolStripMenuItem";
             this.itemReportsToolStripMenuItem.Size = new System.Drawing.Size(243, 24);
-            this.itemReportsToolStripMenuItem.Text = "Item Reports";
+            this.itemReportsToolStripMenuItem.Text = "Item Report";
             this.itemReportsToolStripMenuItem.Click += new System.EventHandler(this.itemReportsToolStripMenuItem_Click);
             // 
             // supplierToolStripMenuItem
@@ -1323,17 +1362,6 @@
             this.activeUserHeadingLabel.TabIndex = 33;
             this.activeUserHeadingLabel.Text = "Active User :";
             // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
-            this.toolStripMenuItem10.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(308, 24);
-            this.toolStripMenuItem10.Text = "Sales By SalePerson";
-            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
-            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1466,5 +1494,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
     }
 }

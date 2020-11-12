@@ -2,23 +2,24 @@
 <xs:schema id="InvoiceDataSet" targetNamespace="http://tempuri.org/InvoiceDataSet.xsd" xmlns:mstns="http://tempuri.org/InvoiceDataSet.xsd" xmlns="http://tempuri.org/InvoiceDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PointOfSaleConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PointOfSaleConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PointOfSale.UI.Properties.Settings.GlobalReference.Default.PointOfSaleConnectionString1" Provider="System.Data.SQLite.EF6" />
-          <Connection ConnectionStringObject="data source=D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Debug\DataContext\PointOfSale.db" IsAppSettingsProperty="false" Modifier="Assembly" Name="SQLite [PointOfSale]" ParameterPrefix="@" Provider="System.Data.SQLite.EF6" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PointOfSaleConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PointOfSaleConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PointOfSale.UI.Properties.Settings.GlobalReference.Default.PointOfSaleConnectionString2" Provider="System.Data.SQLite.EF6" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InvoiceTableAdapter" GeneratorDataComponentClassName="InvoiceTableAdapter" Name="Invoice" UserDataComponentName="InvoiceTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SQLite [PointOfSale]" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="PointOfSaleConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Invoice.InvoiceID, Invoice.InvoiceDate, Invoice.TotalToPay, Invoice.InvoiceType, Invoice.InvoiceNumber, Invoice.PaymentMethodID, Invoice.InvoiceStatus, Invoice.ReferenceInvoiceID, Invoice.ReferenceInvoiceNumber, 
-                         PaymentMethod.Name AS PaymentMethod, InvoiceCustomer.Discount, Customer.Name AS Customer
-FROM            Invoice LEFT OUTER JOIN
-                         InvoiceCustomer ON Invoice.InvoiceID = InvoiceCustomer.InvoiceID LEFT JOIN
-                         Customer ON InvoiceCustomer.CustomerID = Customer.CustomerID LEFT OUTER JOIN
-                         PaymentMethod ON Invoice.PaymentMethodID = PaymentMethod.PaymentMethodID</CommandText>
+                    <CommandText>
+                      SELECT        Invoice.InvoiceID, Invoice.InvoiceDate, Invoice.TotalToPay, Invoice.InvoiceType, Invoice.InvoiceNumber, Invoice.PaymentMethodID, Invoice.InvoiceStatus, Invoice.ReferenceInvoiceID, Invoice.ReferenceInvoiceNumber,
+                      PaymentMethod.Name AS PaymentMethod, InvoiceCustomer.Discount, Customer.Name AS Customer, InvoiceCustomer.ReceivedAmount, InvoiceCustomer.DueAmount, InvoiceCustomer.TotalAmount
+                      FROM            Invoice LEFT OUTER JOIN
+                      InvoiceCustomer ON Invoice.InvoiceID = InvoiceCustomer.InvoiceID LEFT OUTER JOIN
+                      Customer ON InvoiceCustomer.CustomerID = Customer.CustomerID LEFT OUTER JOIN
+                      PaymentMethod ON Invoice.PaymentMethodID = PaymentMethod.PaymentMethodID
+                    </CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -34,20 +35,25 @@ FROM            Invoice LEFT OUTER JOIN
               <Mapping SourceColumn="InvoiceStatus" DataSetColumn="InvoiceStatus" />
               <Mapping SourceColumn="ReferenceInvoiceID" DataSetColumn="ReferenceInvoiceID" />
               <Mapping SourceColumn="ReferenceInvoiceNumber" DataSetColumn="ReferenceInvoiceNumber" />
+              <Mapping SourceColumn="PaymentMethod" DataSetColumn="PaymentMethod" />
               <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
               <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
-              <Mapping SourceColumn="PaymentMethod" DataSetColumn="PaymentMethod" />
+              <Mapping SourceColumn="ReceivedAmount" DataSetColumn="ReceivedAmount" />
+              <Mapping SourceColumn="DueAmount" DataSetColumn="DueAmount" />
+              <Mapping SourceColumn="TotalAmount" DataSetColumn="TotalAmount" />
             </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InvoiceItemTableAdapter" GeneratorDataComponentClassName="InvoiceItemTableAdapter" Name="InvoiceItem" UserDataComponentName="InvoiceItemTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SQLite [PointOfSale]" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="PointOfSaleConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        InvoiceItem.InvoiceID, InvoiceItem.Quantity, InvoiceItem.UnitPrice, InvoiceItem.UnitType, InvoiceItem.SalePrice, Supplier.Name AS Supplier, InvoiceItem.ProductName
-FROM            InvoiceItem LEFT OUTER JOIN
-                         Supplier ON InvoiceItem.SupplierID = Supplier.SupplierID</CommandText>
+                    <CommandText>
+                      SELECT        InvoiceItem.InvoiceID, InvoiceItem.Quantity, InvoiceItem.UnitPrice, InvoiceItem.UnitType, InvoiceItem.SalePrice, Supplier.Name AS Supplier, InvoiceItem.ProductName, InvoiceItem.TotalPrice
+                      FROM            InvoiceItem LEFT OUTER JOIN
+                      Supplier ON InvoiceItem.SupplierID = Supplier.SupplierID
+                    </CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -58,6 +64,7 @@ FROM            InvoiceItem LEFT OUTER JOIN
               <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
               <Mapping SourceColumn="UnitPrice" DataSetColumn="UnitPrice" />
               <Mapping SourceColumn="UnitType" DataSetColumn="UnitType" />
+              <Mapping SourceColumn="TotalPrice" DataSetColumn="TotalPrice" />
               <Mapping SourceColumn="SalePrice" DataSetColumn="SalePrice" />
               <Mapping SourceColumn="ProductName" DataSetColumn="ProductName" />
               <Mapping SourceColumn="Supplier" DataSetColumn="Supplier" />
@@ -72,7 +79,7 @@ FROM            InvoiceItem LEFT OUTER JOIN
   <xs:element name="InvoiceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="InvoiceDataSet" msprop:Generator_UserDSName="InvoiceDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Invoice" msprop:Generator_TableClassName="InvoiceDataTable" msprop:Generator_TableVarName="tableInvoice" msprop:Generator_TablePropName="Invoice" msprop:Generator_RowDeletingName="InvoiceRowDeleting" msprop:Generator_RowChangingName="InvoiceRowChanging" msprop:Generator_RowEvHandlerName="InvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceRowDeleted" msprop:Generator_UserTableName="Invoice" msprop:Generator_RowChangedName="InvoiceRowChanged" msprop:Generator_RowEvArgName="InvoiceRowChangeEvent" msprop:Generator_RowClassName="InvoiceRow">
+        <xs:element name="Invoice" msprop:Generator_TableClassName="InvoiceDataTable" msprop:Generator_TableVarName="tableInvoice" msprop:Generator_RowChangedName="InvoiceRowChanged" msprop:Generator_TablePropName="Invoice" msprop:Generator_RowDeletingName="InvoiceRowDeleting" msprop:Generator_RowChangingName="InvoiceRowChanging" msprop:Generator_RowEvHandlerName="InvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceRowDeleted" msprop:Generator_RowClassName="InvoiceRow" msprop:Generator_UserTableName="Invoice" msprop:Generator_RowEvArgName="InvoiceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InvoiceID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnInvoiceID" msprop:Generator_ColumnPropNameInRow="InvoiceID" msprop:Generator_ColumnPropNameInTable="InvoiceIDColumn" msprop:Generator_UserColumnName="InvoiceID" type="xs:long" />
@@ -114,6 +121,13 @@ FROM            InvoiceItem LEFT OUTER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="PaymentMethod" msprop:Generator_ColumnVarNameInTable="columnPaymentMethod" msprop:Generator_ColumnPropNameInRow="PaymentMethod" msprop:Generator_ColumnPropNameInTable="PaymentMethodColumn" msprop:Generator_UserColumnName="PaymentMethod" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:decimal" minOccurs="0" />
               <xs:element name="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer" minOccurs="0">
                 <xs:simpleType>
@@ -122,17 +136,13 @@ FROM            InvoiceItem LEFT OUTER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PaymentMethod" msprop:Generator_ColumnVarNameInTable="columnPaymentMethod" msprop:Generator_ColumnPropNameInRow="PaymentMethod" msprop:Generator_ColumnPropNameInTable="PaymentMethodColumn" msprop:Generator_UserColumnName="PaymentMethod" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="ReceivedAmount" msprop:Generator_ColumnVarNameInTable="columnReceivedAmount" msprop:Generator_ColumnPropNameInRow="ReceivedAmount" msprop:Generator_ColumnPropNameInTable="ReceivedAmountColumn" msprop:Generator_UserColumnName="ReceivedAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DueAmount" msprop:Generator_ColumnVarNameInTable="columnDueAmount" msprop:Generator_ColumnPropNameInRow="DueAmount" msprop:Generator_ColumnPropNameInTable="DueAmountColumn" msprop:Generator_UserColumnName="DueAmount" type="xs:long" minOccurs="0" />
+              <xs:element name="TotalAmount" msprop:Generator_ColumnVarNameInTable="columnTotalAmount" msprop:Generator_ColumnPropNameInRow="TotalAmount" msprop:Generator_ColumnPropNameInTable="TotalAmountColumn" msprop:Generator_UserColumnName="TotalAmount" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="InvoiceItem" msprop:Generator_TableClassName="InvoiceItemDataTable" msprop:Generator_TableVarName="tableInvoiceItem" msprop:Generator_TablePropName="InvoiceItem" msprop:Generator_RowDeletingName="InvoiceItemRowDeleting" msprop:Generator_RowChangingName="InvoiceItemRowChanging" msprop:Generator_RowEvHandlerName="InvoiceItemRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceItemRowDeleted" msprop:Generator_UserTableName="InvoiceItem" msprop:Generator_RowChangedName="InvoiceItemRowChanged" msprop:Generator_RowEvArgName="InvoiceItemRowChangeEvent" msprop:Generator_RowClassName="InvoiceItemRow">
+        <xs:element name="InvoiceItem" msprop:Generator_TableClassName="InvoiceItemDataTable" msprop:Generator_TableVarName="tableInvoiceItem" msprop:Generator_RowChangedName="InvoiceItemRowChanged" msprop:Generator_TablePropName="InvoiceItem" msprop:Generator_RowDeletingName="InvoiceItemRowDeleting" msprop:Generator_RowChangingName="InvoiceItemRowChanging" msprop:Generator_RowEvHandlerName="InvoiceItemRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceItemRowDeleted" msprop:Generator_RowClassName="InvoiceItemRow" msprop:Generator_UserTableName="InvoiceItem" msprop:Generator_RowEvArgName="InvoiceItemRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InvoiceID" msprop:Generator_ColumnVarNameInTable="columnInvoiceID" msprop:Generator_ColumnPropNameInRow="InvoiceID" msprop:Generator_ColumnPropNameInTable="InvoiceIDColumn" msprop:Generator_UserColumnName="InvoiceID" type="xs:long" minOccurs="0" />
@@ -145,6 +155,7 @@ FROM            InvoiceItem LEFT OUTER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="TotalPrice" msprop:Generator_ColumnVarNameInTable="columnTotalPrice" msprop:Generator_ColumnPropNameInRow="TotalPrice" msprop:Generator_ColumnPropNameInTable="TotalPriceColumn" msprop:Generator_UserColumnName="TotalPrice" type="xs:decimal" minOccurs="0" />
               <xs:element name="SalePrice" msprop:Generator_ColumnVarNameInTable="columnSalePrice" msprop:Generator_ColumnPropNameInRow="SalePrice" msprop:Generator_ColumnPropNameInTable="SalePriceColumn" msprop:Generator_UserColumnName="SalePrice" type="xs:decimal" minOccurs="0" />
               <xs:element name="ProductName" msprop:Generator_ColumnVarNameInTable="columnProductName" msprop:Generator_ColumnPropNameInRow="ProductName" msprop:Generator_ColumnPropNameInTable="ProductNameColumn" msprop:Generator_UserColumnName="ProductName" minOccurs="0">
                 <xs:simpleType>
@@ -172,7 +183,7 @@ FROM            InvoiceItem LEFT OUTER JOIN
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_InvoiceItem_0_0" msdata:parent="Invoice" msdata:child="InvoiceItem" msdata:parentkey="InvoiceID" msdata:childkey="InvoiceID" msprop:Generator_UserChildTable="InvoiceItem" msprop:Generator_ChildPropName="GetInvoiceItemRows" msprop:Generator_UserRelationName="FK_InvoiceItem_0_0" msprop:Generator_ParentPropName="InvoiceRow" msprop:Generator_RelationVarName="relationFK_InvoiceItem_0_0" msprop:Generator_UserParentTable="Invoice" />
+      <msdata:Relationship name="FK_InvoiceItem_1_0" msdata:parent="Invoice" msdata:child="InvoiceItem" msdata:parentkey="InvoiceID" msdata:childkey="InvoiceID" msprop:Generator_UserChildTable="InvoiceItem" msprop:Generator_ChildPropName="GetInvoiceItemRows" msprop:Generator_UserRelationName="FK_InvoiceItem_1_0" msprop:Generator_RelationVarName="relationFK_InvoiceItem_1_0" msprop:Generator_UserParentTable="Invoice" msprop:Generator_ParentPropName="InvoiceRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

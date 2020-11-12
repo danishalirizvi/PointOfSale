@@ -54,6 +54,14 @@
             this.rawPriceTotallbl = new MetroFramework.Controls.MetroLabel();
             this.priceTotaallbl = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.chk_Gift = new System.Windows.Forms.CheckBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.txtReorder = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.txtSalePrice = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.txtPurchasePrice = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -76,7 +84,7 @@
             this.txt_SrchProName.CustomButton.Visible = false;
             this.txt_SrchProName.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txt_SrchProName.Lines = new string[0];
-            this.txt_SrchProName.Location = new System.Drawing.Point(756, 48);
+            this.txt_SrchProName.Location = new System.Drawing.Point(756, 33);
             this.txt_SrchProName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SrchProName.MaxLength = 32767;
             this.txt_SrchProName.Name = "txt_SrchProName";
@@ -98,7 +106,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(553, 54);
+            this.metroLabel1.Location = new System.Drawing.Point(553, 39);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(197, 19);
             this.metroLabel1.TabIndex = 3;
@@ -143,7 +151,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.productsDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.productsDataGridView.Location = new System.Drawing.Point(18, 201);
+            this.productsDataGridView.Location = new System.Drawing.Point(18, 216);
             this.productsDataGridView.MultiSelect = false;
             this.productsDataGridView.Name = "productsDataGridView";
             this.productsDataGridView.ReadOnly = true;
@@ -177,7 +185,7 @@
             this.txtProductCode.CustomButton.Visible = false;
             this.txtProductCode.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtProductCode.Lines = new string[0];
-            this.txtProductCode.Location = new System.Drawing.Point(189, 160);
+            this.txtProductCode.Location = new System.Drawing.Point(178, 181);
             this.txtProductCode.MaxLength = 32767;
             this.txtProductCode.Name = "txtProductCode";
             this.txtProductCode.PasswordChar = '\0';
@@ -198,7 +206,7 @@
             // 
             this.lblProductCode.AutoSize = true;
             this.lblProductCode.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblProductCode.Location = new System.Drawing.Point(58, 165);
+            this.lblProductCode.Location = new System.Drawing.Point(47, 186);
             this.lblProductCode.Name = "lblProductCode";
             this.lblProductCode.Size = new System.Drawing.Size(125, 25);
             this.lblProductCode.TabIndex = 50;
@@ -208,7 +216,7 @@
             // 
             this.productTypeLabel.AutoSize = true;
             this.productTypeLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.productTypeLabel.Location = new System.Drawing.Point(64, 129);
+            this.productTypeLabel.Location = new System.Drawing.Point(53, 145);
             this.productTypeLabel.Name = "productTypeLabel";
             this.productTypeLabel.Size = new System.Drawing.Size(119, 25);
             this.productTypeLabel.TabIndex = 48;
@@ -221,7 +229,7 @@
             this.chk_Active.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_Active.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Active.ForeColor = System.Drawing.Color.DarkGreen;
-            this.chk_Active.Location = new System.Drawing.Point(430, 168);
+            this.chk_Active.Location = new System.Drawing.Point(419, 184);
             this.chk_Active.Name = "chk_Active";
             this.chk_Active.Size = new System.Drawing.Size(72, 22);
             this.chk_Active.TabIndex = 44;
@@ -232,7 +240,7 @@
             // 
             this.metroLabel9.AutoSize = true;
             this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel9.Location = new System.Drawing.Point(349, 129);
+            this.metroLabel9.Location = new System.Drawing.Point(338, 145);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(91, 25);
             this.metroLabel9.TabIndex = 45;
@@ -254,7 +262,7 @@
             this.txt_ItemName.CustomButton.Visible = false;
             this.txt_ItemName.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_ItemName.Lines = new string[0];
-            this.txt_ItemName.Location = new System.Drawing.Point(189, 88);
+            this.txt_ItemName.Location = new System.Drawing.Point(178, 104);
             this.txt_ItemName.MaxLength = 32767;
             this.txt_ItemName.Name = "txt_ItemName";
             this.txt_ItemName.PasswordChar = '\0';
@@ -275,7 +283,7 @@
             // 
             this.metroLabel10.AutoSize = true;
             this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel10.Location = new System.Drawing.Point(320, 165);
+            this.metroLabel10.Location = new System.Drawing.Point(309, 181);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(104, 25);
             this.metroLabel10.TabIndex = 46;
@@ -285,7 +293,7 @@
             // 
             this.ProductLabel.AutoSize = true;
             this.ProductLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.ProductLabel.Location = new System.Drawing.Point(52, 93);
+            this.ProductLabel.Location = new System.Drawing.Point(41, 109);
             this.ProductLabel.Name = "ProductLabel";
             this.ProductLabel.Size = new System.Drawing.Size(131, 25);
             this.ProductLabel.TabIndex = 47;
@@ -299,7 +307,7 @@
             "Male",
             "Female",
             "Other"});
-            this.cmbProductTypes.Location = new System.Drawing.Point(189, 125);
+            this.cmbProductTypes.Location = new System.Drawing.Point(178, 141);
             this.cmbProductTypes.Name = "cmbProductTypes";
             this.cmbProductTypes.PromptText = "Select Product Type";
             this.cmbProductTypes.Size = new System.Drawing.Size(154, 29);
@@ -326,7 +334,7 @@
             "Mm",
             "Bag",
             "Feet"});
-            this.cmbUnitType.Location = new System.Drawing.Point(446, 125);
+            this.cmbUnitType.Location = new System.Drawing.Point(435, 141);
             this.cmbUnitType.Name = "cmbUnitType";
             this.cmbUnitType.PromptText = "Select Unit";
             this.cmbUnitType.Size = new System.Drawing.Size(101, 29);
@@ -342,7 +350,7 @@
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2});
-            this.bindingNavigator1.Location = new System.Drawing.Point(777, 75);
+            this.bindingNavigator1.Location = new System.Drawing.Point(777, 60);
             this.bindingNavigator1.MoveFirstItem = null;
             this.bindingNavigator1.MoveLastItem = null;
             this.bindingNavigator1.MoveNextItem = null;
@@ -379,40 +387,197 @@
             this.rawPriceTotallbl.AutoSize = true;
             this.rawPriceTotallbl.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.rawPriceTotallbl.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.rawPriceTotallbl.Location = new System.Drawing.Point(777, 173);
+            this.rawPriceTotallbl.Location = new System.Drawing.Point(766, 188);
             this.rawPriceTotallbl.Name = "rawPriceTotallbl";
-            this.rawPriceTotallbl.Size = new System.Drawing.Size(114, 25);
+            this.rawPriceTotallbl.Size = new System.Drawing.Size(119, 25);
             this.rawPriceTotallbl.TabIndex = 56;
             this.rawPriceTotallbl.Text = "RawPriceTotal";
-            this.rawPriceTotallbl.Click += new System.EventHandler(this.rawPriceTotallbl_Click);
             // 
             // priceTotaallbl
             // 
             this.priceTotaallbl.AutoSize = true;
             this.priceTotaallbl.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.priceTotaallbl.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.priceTotaallbl.Location = new System.Drawing.Point(909, 173);
+            this.priceTotaallbl.Location = new System.Drawing.Point(898, 188);
             this.priceTotaallbl.Name = "priceTotaallbl";
-            this.priceTotaallbl.Size = new System.Drawing.Size(83, 25);
+            this.priceTotaallbl.Size = new System.Drawing.Size(86, 25);
             this.priceTotaallbl.TabIndex = 57;
             this.priceTotaallbl.Text = "PriceTotal";
-            this.priceTotaallbl.Click += new System.EventHandler(this.priceTotaallbl_Click);
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.Location = new System.Drawing.Point(704, 173);
+            this.metroLabel2.Location = new System.Drawing.Point(693, 188);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(46, 25);
             this.metroLabel2.TabIndex = 58;
             this.metroLabel2.Text = "Total";
             // 
+            // chk_Gift
+            // 
+            this.chk_Gift.AutoSize = true;
+            this.chk_Gift.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Gift.ForeColor = System.Drawing.Color.DarkGreen;
+            this.chk_Gift.Location = new System.Drawing.Point(588, 184);
+            this.chk_Gift.Name = "chk_Gift";
+            this.chk_Gift.Size = new System.Drawing.Size(72, 22);
+            this.chk_Gift.TabIndex = 60;
+            this.chk_Gift.Text = "Active";
+            this.chk_Gift.UseVisualStyleBackColor = true;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.Location = new System.Drawing.Point(497, 181);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(85, 25);
+            this.metroLabel3.TabIndex = 61;
+            this.metroLabel3.Text = "Gift Item :";
+            // 
+            // txtReorder
+            // 
+            // 
+            // 
+            // 
+            this.txtReorder.CustomButton.Image = null;
+            this.txtReorder.CustomButton.Location = new System.Drawing.Point(122, 2);
+            this.txtReorder.CustomButton.Name = "";
+            this.txtReorder.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtReorder.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtReorder.CustomButton.TabIndex = 1;
+            this.txtReorder.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtReorder.CustomButton.UseSelectable = true;
+            this.txtReorder.CustomButton.Visible = false;
+            this.txtReorder.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtReorder.Lines = new string[0];
+            this.txtReorder.Location = new System.Drawing.Point(542, 141);
+            this.txtReorder.MaxLength = 32767;
+            this.txtReorder.Name = "txtReorder";
+            this.txtReorder.PasswordChar = '\0';
+            this.txtReorder.PromptText = "ReOrder Quantity...";
+            this.txtReorder.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtReorder.SelectedText = "";
+            this.txtReorder.SelectionLength = 0;
+            this.txtReorder.SelectionStart = 0;
+            this.txtReorder.ShortcutsEnabled = true;
+            this.txtReorder.Size = new System.Drawing.Size(150, 30);
+            this.txtReorder.TabIndex = 63;
+            this.txtReorder.UseSelectable = true;
+            this.txtReorder.WaterMark = "ReOrder Quantity...";
+            this.txtReorder.WaterMarkColor = System.Drawing.Color.Silver;
+            this.txtReorder.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.Location = new System.Drawing.Point(542, 113);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(128, 25);
+            this.metroLabel4.TabIndex = 62;
+            this.metroLabel4.Text = "ReOrder Level :";
+            // 
+            // txtSalePrice
+            // 
+            // 
+            // 
+            // 
+            this.txtSalePrice.CustomButton.Image = null;
+            this.txtSalePrice.CustomButton.Location = new System.Drawing.Point(122, 2);
+            this.txtSalePrice.CustomButton.Name = "";
+            this.txtSalePrice.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtSalePrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSalePrice.CustomButton.TabIndex = 1;
+            this.txtSalePrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSalePrice.CustomButton.UseSelectable = true;
+            this.txtSalePrice.CustomButton.Visible = false;
+            this.txtSalePrice.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtSalePrice.Lines = new string[0];
+            this.txtSalePrice.Location = new System.Drawing.Point(698, 141);
+            this.txtSalePrice.MaxLength = 32767;
+            this.txtSalePrice.Name = "txtSalePrice";
+            this.txtSalePrice.PasswordChar = '\0';
+            this.txtSalePrice.PromptText = "Unit Sale Price...";
+            this.txtSalePrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSalePrice.SelectedText = "";
+            this.txtSalePrice.SelectionLength = 0;
+            this.txtSalePrice.SelectionStart = 0;
+            this.txtSalePrice.ShortcutsEnabled = true;
+            this.txtSalePrice.Size = new System.Drawing.Size(150, 30);
+            this.txtSalePrice.TabIndex = 65;
+            this.txtSalePrice.UseSelectable = true;
+            this.txtSalePrice.WaterMark = "Unit Sale Price...";
+            this.txtSalePrice.WaterMarkColor = System.Drawing.Color.Silver;
+            this.txtSalePrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel6.Location = new System.Drawing.Point(698, 112);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(94, 25);
+            this.metroLabel6.TabIndex = 64;
+            this.metroLabel6.Text = "Sale Price :";
+            // 
+            // txtPurchasePrice
+            // 
+            // 
+            // 
+            // 
+            this.txtPurchasePrice.CustomButton.Image = null;
+            this.txtPurchasePrice.CustomButton.Location = new System.Drawing.Point(122, 2);
+            this.txtPurchasePrice.CustomButton.Name = "";
+            this.txtPurchasePrice.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtPurchasePrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPurchasePrice.CustomButton.TabIndex = 1;
+            this.txtPurchasePrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPurchasePrice.CustomButton.UseSelectable = true;
+            this.txtPurchasePrice.CustomButton.Visible = false;
+            this.txtPurchasePrice.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtPurchasePrice.Lines = new string[0];
+            this.txtPurchasePrice.Location = new System.Drawing.Point(854, 140);
+            this.txtPurchasePrice.MaxLength = 32767;
+            this.txtPurchasePrice.Name = "txtPurchasePrice";
+            this.txtPurchasePrice.PasswordChar = '\0';
+            this.txtPurchasePrice.PromptText = "Unit Purchase Price...";
+            this.txtPurchasePrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPurchasePrice.SelectedText = "";
+            this.txtPurchasePrice.SelectionLength = 0;
+            this.txtPurchasePrice.SelectionStart = 0;
+            this.txtPurchasePrice.ShortcutsEnabled = true;
+            this.txtPurchasePrice.Size = new System.Drawing.Size(150, 30);
+            this.txtPurchasePrice.TabIndex = 67;
+            this.txtPurchasePrice.UseSelectable = true;
+            this.txtPurchasePrice.WaterMark = "Unit Purchase Price...";
+            this.txtPurchasePrice.WaterMarkColor = System.Drawing.Color.Silver;
+            this.txtPurchasePrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel7.Location = new System.Drawing.Point(854, 111);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(132, 25);
+            this.metroLabel7.TabIndex = 66;
+            this.metroLabel7.Text = "Purchase Price :";
+            // 
             // OnlyShowItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 611);
+            this.ClientSize = new System.Drawing.Size(1024, 626);
+            this.Controls.Add(this.txtPurchasePrice);
+            this.Controls.Add(this.metroLabel7);
+            this.Controls.Add(this.txtSalePrice);
+            this.Controls.Add(this.metroLabel6);
+            this.Controls.Add(this.txtReorder);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.chk_Gift);
+            this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.priceTotaallbl);
             this.Controls.Add(this.rawPriceTotallbl);
@@ -471,5 +636,13 @@
         private MetroFramework.Controls.MetroLabel rawPriceTotallbl;
         private MetroFramework.Controls.MetroLabel priceTotaallbl;
         private MetroFramework.Controls.MetroLabel metroLabel2;
+        private System.Windows.Forms.CheckBox chk_Gift;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroTextBox txtReorder;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroTextBox txtSalePrice;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroTextBox txtPurchasePrice;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
     }
 }

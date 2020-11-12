@@ -53,6 +53,35 @@ namespace PointOfSale.Data.DataAccess
             }
         }
 
+
+        public List<ReportVM> GetInvoicesForProfit(ReportParams param)
+        {
+            using (IDbConnection con = new SQLiteConnection(_connectionstring))
+            {
+                List<ReportVM> data = new List<ReportVM>();
+                var output = con.Query<ReportVM>(@"SELECT * from ProfitReportView ");
+                if (output?.ToList().Count > 0)
+                {
+                    data = new List<ReportVM>();
+                    foreach (var item in output.ToList())
+                    {
+                        DateTime invoiceDate;
+                        DateTime.TryParse(item.Date, out invoiceDate);
+
+                        if ((DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) <= DateTime.Parse(param.ToDate.ToString("yyyy-MM-dd"))) &&
+                        (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd"))) &&
+                        item.InvoiceStatus != "Cancelled"
+                        )
+
+                        {
+                            data.Add(item);
+                        }
+                    }
+                }
+                return data.ToList();
+            }
+        }
+
         public List<ReportVM> GetInvoicesBySalesPersons(ReportParams param)
         {
             using (IDbConnection con = new SQLiteConnection(_connectionstring))
@@ -66,11 +95,11 @@ namespace PointOfSale.Data.DataAccess
                     {
                         DateTime invoiceDate;
                         DateTime.TryParse(item.Date, out invoiceDate);
-                        if (item.SalesPersonID != 0)
+                        if (param.SalesPersonID != 0)
                         {
                             if ((DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) <= DateTime.Parse(param.ToDate.ToString("yyyy-MM-dd"))) &&
-                            (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd")))
-                            && item.SalesPersonID == param.SalesPersonID)
+                            (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd"))) &&
+                            item.SalesPersonID == param.SalesPersonID)
 
                             {
                                 data.Add(item);
@@ -157,8 +186,27 @@ namespace PointOfSale.Data.DataAccess
                            new { InvoiceStatus = InvoiceStatusEnum.Cancelled.ToString(), InvoiceID = refId });
 
                 UpdateStockForCancelledInvoice(refId, con);
+                UpdateCustomerDueAmount(refId, con);
             }
 
+        }
+
+        private void UpdateCustomerDueAmount(int refId, IDbConnection con)
+        {
+            try
+            {
+                InvoiceCustomer ic = con.QueryFirstOrDefault<InvoiceCustomer>("select * from InvoiceCustomer where InvoiceID = @InvoiceID",
+                    new { InvoiceID = refId });
+                if (ic != null)
+                {
+                    con.Query(@"UPDATE Customer SET DueAmount = DueAmount - @PreviousDue where CustomerID = @CustomerID",
+                        new { PreviousDue = ic.DueAmount, CustomerID = ic.CustomerID });
+                }
+
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public string GetLastRunningNumber(string invoiceType)
@@ -454,7 +502,7 @@ namespace PointOfSale.Data.DataAccess
                         DateTime.TryParse(item.Date, out invoiceDate);
                         if ((DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) <= DateTime.Parse(param.ToDate.ToString("yyyy-MM-dd"))) &&
                             (DateTime.Parse(invoiceDate.ToString("yyyy-MM-dd")) >= DateTime.Parse(param.FromDate.ToString("yyyy-MM-dd"))) &&
-                             item.PaymentMethodID == param.PaymentMethodID
+                             item.PaymentMethod == param.PaymentMethod
                             )
 
                         {

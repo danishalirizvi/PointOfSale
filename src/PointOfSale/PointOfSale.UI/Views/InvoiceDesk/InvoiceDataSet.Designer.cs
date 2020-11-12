@@ -28,7 +28,7 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
         
         private InvoiceItemDataTable tableInvoiceItem;
         
-        private global::System.Data.DataRelation relationFK_InvoiceItem_0_0;
+        private global::System.Data.DataRelation relationFK_InvoiceItem_1_0;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -220,7 +220,7 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
                     this.tableInvoiceItem.InitVars();
                 }
             }
-            this.relationFK_InvoiceItem_0_0 = this.Relations["FK_InvoiceItem_0_0"];
+            this.relationFK_InvoiceItem_1_0 = this.Relations["FK_InvoiceItem_1_0"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -235,10 +235,10 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             base.Tables.Add(this.tableInvoice);
             this.tableInvoiceItem = new InvoiceItemDataTable();
             base.Tables.Add(this.tableInvoiceItem);
-            this.relationFK_InvoiceItem_0_0 = new global::System.Data.DataRelation("FK_InvoiceItem_0_0", new global::System.Data.DataColumn[] {
+            this.relationFK_InvoiceItem_1_0 = new global::System.Data.DataRelation("FK_InvoiceItem_1_0", new global::System.Data.DataColumn[] {
                         this.tableInvoice.InvoiceIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvoiceItem.InvoiceIDColumn}, false);
-            this.Relations.Add(this.relationFK_InvoiceItem_0_0);
+            this.Relations.Add(this.relationFK_InvoiceItem_1_0);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -339,11 +339,17 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             private global::System.Data.DataColumn columnReferenceInvoiceNumber;
             
+            private global::System.Data.DataColumn columnPaymentMethod;
+            
             private global::System.Data.DataColumn columnDiscount;
             
             private global::System.Data.DataColumn columnCustomer;
             
-            private global::System.Data.DataColumn columnPaymentMethod;
+            private global::System.Data.DataColumn columnReceivedAmount;
+            
+            private global::System.Data.DataColumn columnDueAmount;
+            
+            private global::System.Data.DataColumn columnTotalAmount;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -452,6 +458,14 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PaymentMethodColumn {
+                get {
+                    return this.columnPaymentMethod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn DiscountColumn {
                 get {
                     return this.columnDiscount;
@@ -468,9 +482,25 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PaymentMethodColumn {
+            public global::System.Data.DataColumn ReceivedAmountColumn {
                 get {
-                    return this.columnPaymentMethod;
+                    return this.columnReceivedAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DueAmountColumn {
+                get {
+                    return this.columnDueAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalAmountColumn {
+                get {
+                    return this.columnTotalAmount;
                 }
             }
             
@@ -511,7 +541,7 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceRow AddInvoiceRow(string InvoiceDate, decimal TotalToPay, string InvoiceType, string InvoiceNumber, long PaymentMethodID, string InvoiceStatus, long ReferenceInvoiceID, string ReferenceInvoiceNumber, decimal Discount, string Customer, string PaymentMethod) {
+            public InvoiceRow AddInvoiceRow(string InvoiceDate, decimal TotalToPay, string InvoiceType, string InvoiceNumber, long PaymentMethodID, string InvoiceStatus, long ReferenceInvoiceID, string ReferenceInvoiceNumber, string PaymentMethod, decimal Discount, string Customer, decimal ReceivedAmount, long DueAmount, decimal TotalAmount) {
                 InvoiceRow rowInvoiceRow = ((InvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -523,9 +553,12 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
                         InvoiceStatus,
                         ReferenceInvoiceID,
                         ReferenceInvoiceNumber,
+                        PaymentMethod,
                         Discount,
                         Customer,
-                        PaymentMethod};
+                        ReceivedAmount,
+                        DueAmount,
+                        TotalAmount};
                 rowInvoiceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInvoiceRow);
                 return rowInvoiceRow;
@@ -564,9 +597,12 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
                 this.columnInvoiceStatus = base.Columns["InvoiceStatus"];
                 this.columnReferenceInvoiceID = base.Columns["ReferenceInvoiceID"];
                 this.columnReferenceInvoiceNumber = base.Columns["ReferenceInvoiceNumber"];
+                this.columnPaymentMethod = base.Columns["PaymentMethod"];
                 this.columnDiscount = base.Columns["Discount"];
                 this.columnCustomer = base.Columns["Customer"];
-                this.columnPaymentMethod = base.Columns["PaymentMethod"];
+                this.columnReceivedAmount = base.Columns["ReceivedAmount"];
+                this.columnDueAmount = base.Columns["DueAmount"];
+                this.columnTotalAmount = base.Columns["TotalAmount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -590,12 +626,18 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
                 base.Columns.Add(this.columnReferenceInvoiceID);
                 this.columnReferenceInvoiceNumber = new global::System.Data.DataColumn("ReferenceInvoiceNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReferenceInvoiceNumber);
+                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentMethod);
                 this.columnDiscount = new global::System.Data.DataColumn("Discount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDiscount);
                 this.columnCustomer = new global::System.Data.DataColumn("Customer", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer);
-                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentMethod);
+                this.columnReceivedAmount = new global::System.Data.DataColumn("ReceivedAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceivedAmount);
+                this.columnDueAmount = new global::System.Data.DataColumn("DueAmount", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDueAmount);
+                this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalAmount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnInvoiceID}, true));
                 this.columnInvoiceID.AutoIncrement = true;
@@ -609,8 +651,8 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
                 this.columnInvoiceNumber.MaxLength = 2147483647;
                 this.columnInvoiceStatus.MaxLength = 2147483647;
                 this.columnReferenceInvoiceNumber.MaxLength = 2147483647;
-                this.columnCustomer.MaxLength = 2147483647;
                 this.columnPaymentMethod.MaxLength = 2147483647;
+                this.columnCustomer.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -752,6 +794,8 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             private global::System.Data.DataColumn columnUnitType;
             
+            private global::System.Data.DataColumn columnTotalPrice;
+            
             private global::System.Data.DataColumn columnSalePrice;
             
             private global::System.Data.DataColumn columnProductName;
@@ -825,6 +869,14 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalPriceColumn {
+                get {
+                    return this.columnTotalPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn SalePriceColumn {
                 get {
                     return this.columnSalePrice;
@@ -884,18 +936,19 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceItemRow AddInvoiceItemRow(InvoiceRow parentInvoiceRowByFK_InvoiceItem_0_0, long Quantity, decimal UnitPrice, string UnitType, decimal SalePrice, string ProductName, string Supplier) {
+            public InvoiceItemRow AddInvoiceItemRow(InvoiceRow parentInvoiceRowByFK_InvoiceItem_1_0, long Quantity, decimal UnitPrice, string UnitType, decimal TotalPrice, decimal SalePrice, string ProductName, string Supplier) {
                 InvoiceItemRow rowInvoiceItemRow = ((InvoiceItemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Quantity,
                         UnitPrice,
                         UnitType,
+                        TotalPrice,
                         SalePrice,
                         ProductName,
                         Supplier};
-                if ((parentInvoiceRowByFK_InvoiceItem_0_0 != null)) {
-                    columnValuesArray[0] = parentInvoiceRowByFK_InvoiceItem_0_0[0];
+                if ((parentInvoiceRowByFK_InvoiceItem_1_0 != null)) {
+                    columnValuesArray[0] = parentInvoiceRowByFK_InvoiceItem_1_0[0];
                 }
                 rowInvoiceItemRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInvoiceItemRow);
@@ -923,6 +976,7 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnUnitPrice = base.Columns["UnitPrice"];
                 this.columnUnitType = base.Columns["UnitType"];
+                this.columnTotalPrice = base.Columns["TotalPrice"];
                 this.columnSalePrice = base.Columns["SalePrice"];
                 this.columnProductName = base.Columns["ProductName"];
                 this.columnSupplier = base.Columns["Supplier"];
@@ -939,6 +993,8 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
                 base.Columns.Add(this.columnUnitPrice);
                 this.columnUnitType = new global::System.Data.DataColumn("UnitType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUnitType);
+                this.columnTotalPrice = new global::System.Data.DataColumn("TotalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalPrice);
                 this.columnSalePrice = new global::System.Data.DataColumn("SalePrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSalePrice);
                 this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1224,6 +1280,22 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PaymentMethod {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvoice.PaymentMethodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'Invoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoice.PaymentMethodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal Discount {
                 get {
                     try {
@@ -1256,17 +1328,49 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string PaymentMethod {
+            public decimal ReceivedAmount {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.PaymentMethodColumn]));
+                        return ((decimal)(this[this.tableInvoice.ReceivedAmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReceivedAmount\' in table \'Invoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.PaymentMethodColumn] = value;
+                    this[this.tableInvoice.ReceivedAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long DueAmount {
+                get {
+                    try {
+                        return ((long)(this[this.tableInvoice.DueAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DueAmount\' in table \'Invoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoice.DueAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TotalAmount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableInvoice.TotalAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmount\' in table \'Invoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoice.TotalAmountColumn] = value;
                 }
             }
             
@@ -1356,6 +1460,18 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPaymentMethodNull() {
+                return this.IsNull(this.tableInvoice.PaymentMethodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPaymentMethodNull() {
+                this[this.tableInvoice.PaymentMethodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDiscountNull() {
                 return this.IsNull(this.tableInvoice.DiscountColumn);
             }
@@ -1380,24 +1496,48 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPaymentMethodNull() {
-                return this.IsNull(this.tableInvoice.PaymentMethodColumn);
+            public bool IsReceivedAmountNull() {
+                return this.IsNull(this.tableInvoice.ReceivedAmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPaymentMethodNull() {
-                this[this.tableInvoice.PaymentMethodColumn] = global::System.Convert.DBNull;
+            public void SetReceivedAmountNull() {
+                this[this.tableInvoice.ReceivedAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDueAmountNull() {
+                return this.IsNull(this.tableInvoice.DueAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDueAmountNull() {
+                this[this.tableInvoice.DueAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalAmountNull() {
+                return this.IsNull(this.tableInvoice.TotalAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalAmountNull() {
+                this[this.tableInvoice.TotalAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InvoiceItemRow[] GetInvoiceItemRows() {
-                if ((this.Table.ChildRelations["FK_InvoiceItem_0_0"] == null)) {
+                if ((this.Table.ChildRelations["FK_InvoiceItem_1_0"] == null)) {
                     return new InvoiceItemRow[0];
                 }
                 else {
-                    return ((InvoiceItemRow[])(base.GetChildRows(this.Table.ChildRelations["FK_InvoiceItem_0_0"])));
+                    return ((InvoiceItemRow[])(base.GetChildRows(this.Table.ChildRelations["FK_InvoiceItem_1_0"])));
                 }
             }
         }
@@ -1482,6 +1622,22 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TotalPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableInvoiceItem.TotalPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalPrice\' in table \'InvoiceItem\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceItem.TotalPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal SalePrice {
                 get {
                     try {
@@ -1532,10 +1688,10 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InvoiceRow InvoiceRow {
                 get {
-                    return ((InvoiceRow)(this.GetParentRow(this.Table.ParentRelations["FK_InvoiceItem_0_0"])));
+                    return ((InvoiceRow)(this.GetParentRow(this.Table.ParentRelations["FK_InvoiceItem_1_0"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_InvoiceItem_0_0"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_InvoiceItem_1_0"]);
                 }
             }
             
@@ -1585,6 +1741,18 @@ namespace PointOfSale.UI.Views.InvoiceDesk {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUnitTypeNull() {
                 this[this.tableInvoiceItem.UnitTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalPriceNull() {
+                return this.IsNull(this.tableInvoiceItem.TotalPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalPriceNull() {
+                this[this.tableInvoiceItem.TotalPriceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1826,9 +1994,12 @@ namespace PointOfSale.UI.Views.InvoiceDesk.InvoiceDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("InvoiceStatus", "InvoiceStatus");
             tableMapping.ColumnMappings.Add("ReferenceInvoiceID", "ReferenceInvoiceID");
             tableMapping.ColumnMappings.Add("ReferenceInvoiceNumber", "ReferenceInvoiceNumber");
+            tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
             tableMapping.ColumnMappings.Add("Discount", "Discount");
             tableMapping.ColumnMappings.Add("Customer", "Customer");
-            tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
+            tableMapping.ColumnMappings.Add("ReceivedAmount", "ReceivedAmount");
+            tableMapping.ColumnMappings.Add("DueAmount", "DueAmount");
+            tableMapping.ColumnMappings.Add("TotalAmount", "TotalAmount");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1836,8 +2007,7 @@ namespace PointOfSale.UI.Views.InvoiceDesk.InvoiceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = "data source=D:\\PointOfSale\\src\\PointOfSale\\PointOfSale.UI\\bin\\Debug\\DataContext\\P" +
-                "ointOfSale.db";
+            this._connection.ConnectionString = global::PointOfSale.UI.Properties.Settings.Default.PointOfSaleConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1846,12 +2016,14 @@ namespace PointOfSale.UI.Views.InvoiceDesk.InvoiceDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Invoice.InvoiceID, Invoice.InvoiceDate, Invoice.TotalToPay, Invoice.InvoiceType, Invoice.InvoiceNumber, Invoice.PaymentMethodID, Invoice.InvoiceStatus, Invoice.ReferenceInvoiceID, Invoice.ReferenceInvoiceNumber, 
-                         PaymentMethod.Name AS PaymentMethod, InvoiceCustomer.Discount, Customer.Name AS Customer
-FROM            Invoice LEFT OUTER JOIN
-                         InvoiceCustomer ON Invoice.InvoiceID = InvoiceCustomer.InvoiceID LEFT JOIN
-                         Customer ON InvoiceCustomer.CustomerID = Customer.CustomerID LEFT OUTER JOIN
-                         PaymentMethod ON Invoice.PaymentMethodID = PaymentMethod.PaymentMethodID";
+            this._commandCollection[0].CommandText = @"
+                      SELECT        Invoice.InvoiceID, Invoice.InvoiceDate, Invoice.TotalToPay, Invoice.InvoiceType, Invoice.InvoiceNumber, Invoice.PaymentMethodID, Invoice.InvoiceStatus, Invoice.ReferenceInvoiceID, Invoice.ReferenceInvoiceNumber,
+                      PaymentMethod.Name AS PaymentMethod, InvoiceCustomer.Discount, Customer.Name AS Customer, InvoiceCustomer.ReceivedAmount, InvoiceCustomer.DueAmount, InvoiceCustomer.TotalAmount
+                      FROM            Invoice LEFT OUTER JOIN
+                      InvoiceCustomer ON Invoice.InvoiceID = InvoiceCustomer.InvoiceID LEFT OUTER JOIN
+                      Customer ON InvoiceCustomer.CustomerID = Customer.CustomerID LEFT OUTER JOIN
+                      PaymentMethod ON Invoice.PaymentMethodID = PaymentMethod.PaymentMethodID
+                    ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2005,6 +2177,7 @@ FROM            Invoice LEFT OUTER JOIN
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("UnitPrice", "UnitPrice");
             tableMapping.ColumnMappings.Add("UnitType", "UnitType");
+            tableMapping.ColumnMappings.Add("TotalPrice", "TotalPrice");
             tableMapping.ColumnMappings.Add("SalePrice", "SalePrice");
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
             tableMapping.ColumnMappings.Add("Supplier", "Supplier");
@@ -2015,8 +2188,7 @@ FROM            Invoice LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = "data source=D:\\PointOfSale\\src\\PointOfSale\\PointOfSale.UI\\bin\\Debug\\DataContext\\P" +
-                "ointOfSale.db";
+            this._connection.ConnectionString = global::PointOfSale.UI.Properties.Settings.Default.PointOfSaleConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2025,9 +2197,11 @@ FROM            Invoice LEFT OUTER JOIN
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        InvoiceItem.InvoiceID, InvoiceItem.Quantity, InvoiceItem.UnitPrice, InvoiceItem.UnitType, InvoiceItem.SalePrice, Supplier.Name AS Supplier, InvoiceItem.ProductName
-FROM            InvoiceItem LEFT OUTER JOIN
-                         Supplier ON InvoiceItem.SupplierID = Supplier.SupplierID";
+            this._commandCollection[0].CommandText = @"
+                      SELECT        InvoiceItem.InvoiceID, InvoiceItem.Quantity, InvoiceItem.UnitPrice, InvoiceItem.UnitType, InvoiceItem.SalePrice, Supplier.Name AS Supplier, InvoiceItem.ProductName, InvoiceItem.TotalPrice
+                      FROM            InvoiceItem LEFT OUTER JOIN
+                      Supplier ON InvoiceItem.SupplierID = Supplier.SupplierID
+                    ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -26,20 +26,11 @@ namespace PointOfSale.UI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=.\\DataContext\\PointOfSale.db;Version=3;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=D:\\PointOfSale\\src\\PointOfSale\\PointOfSale.UI\\bin\\Debug\\DataContext\\P" +
+            "ointOfSale.db")]
         public string PointOfSaleConnectionString {
             get {
                 return ((string)(this["PointOfSaleConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=.\\DataContext\\PointOfSale.db;Version=3;")]
-        public string PointOfSaleConnectionString1 {
-            get {
-                return ((string)(this["PointOfSaleConnectionString1"]));
             }
         }
     }

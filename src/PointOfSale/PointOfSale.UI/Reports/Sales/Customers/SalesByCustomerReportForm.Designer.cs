@@ -61,6 +61,8 @@
             // 
             // customerPicker
             // 
+            this.customerPicker.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.customerPicker.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.customerPicker.FormattingEnabled = true;
             this.customerPicker.Location = new System.Drawing.Point(871, 60);
             this.customerPicker.Name = "customerPicker";

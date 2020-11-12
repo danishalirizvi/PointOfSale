@@ -111,5 +111,10 @@ namespace PointOfSale.UI.Managers
         {
             productDao.UpdateProduct(product);
         }
+
+        internal List<Product> GetAllProducts()
+        {
+            return productDao.getAllProduct();
+        }
     }
 }

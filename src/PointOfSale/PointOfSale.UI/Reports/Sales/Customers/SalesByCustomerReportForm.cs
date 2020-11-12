@@ -45,7 +45,7 @@ namespace PointOfSale.UI.Reports.Sales.All
                 var data = _invoiceDao.GetInvoicesByCutomer(param);
 
                 string appPath = Application.StartupPath;
-                string reportPath = @"Reports\Sales\PaymentType\PaymentMethodReport.rpt";
+                string reportPath = @"Reports\Sales\Customers\SalesByCustomerReport.rpt";
                 //string reportPath = @"Reports\Sales\AllSalesReport.rpt";
                 string reportFullPath = Path.Combine(appPath, reportPath);
 

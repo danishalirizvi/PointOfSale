@@ -30,7 +30,9 @@ namespace PointOfSale.UI.ViewModel
         public decimal TotalAmount { get; set; }
         [DisplayName("Raw Price")]
         public decimal ProductRawPrice { get; set; }
-     
+        [DisplayName("Gits")]
+        public bool isGiftItem { get; set; }
+        
     }
 
 }

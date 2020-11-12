@@ -61,6 +61,8 @@
             // 
             // itemPicker
             // 
+            this.itemPicker.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.itemPicker.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.itemPicker.FormattingEnabled = true;
             this.itemPicker.Location = new System.Drawing.Point(871, 60);
             this.itemPicker.Name = "itemPicker";

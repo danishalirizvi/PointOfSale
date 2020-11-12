@@ -96,7 +96,8 @@ namespace PointOfSale.UI.Views
                     Quantity = item.Quantity,
                     TotalAmount = item.TotalPrice,
                     UnitPrice = item.UnitPrice,
-                    UnitType = item.UnitType
+                    UnitType = item.UnitType,
+                    isGiftItem = Convert.ToBoolean(product.Gift)
                 };
 
                 invoiceVm.invoiceItems.Add(vm);
@@ -211,7 +212,7 @@ namespace PointOfSale.UI.Views
             cmb_Type.DataSource = dt;
             cmb_Type.ValueMember = "PaymentMethodID";
             cmb_Type.DisplayMember = "Name";
-            cmb_Type.SelectedIndex = -1;
+            //cmb_Type.SelectedIndex = -1;
         }
 
         private void LoadProducts()
@@ -255,14 +256,15 @@ namespace PointOfSale.UI.Views
             Product selected = types.FirstOrDefault(t => t.ProductID == productID);
             txt_Quantity.Clear();
 
-            if (selected == null) {
+            if (selected == null)
+            {
                 cmbProductCode.SelectedIndex = -1;
                 txtUnitPrice.Clear();
                 txtUnitType.Clear();
                 txtAvailableStock.Clear();
                 return;
             }
-            
+
             cmbProductCode.Text = selected.ProductCode;
             txtUnitPrice.Text = selected.ProductPrice.ToString();
             txtUnitType.Text = selected.UnitType;
@@ -360,6 +362,7 @@ namespace PointOfSale.UI.Views
             btnUpdateDueInvoice.Enabled = false;
             btnConfirmPayment.Enabled = false;
             txtDueAmount.Enabled = false;
+            btnNewInvoice.Enabled = false;
         }
 
         private void HandleScreen(bool isEnabled)
@@ -394,15 +397,12 @@ namespace PointOfSale.UI.Views
             txt_Quantity.Text = "0";
             txt_Quantity.Enabled = isEnabled;
 
-            txt_ReceivedMoney.Text = "0";
-            txt_ReceivedMoney.Enabled = isEnabled;
-
             txtFixedDiscount.Text = "0";
             txtFixedDiscount.Enabled = isEnabled;
 
             txtDiscountPercent.Text = "0";
             txtDiscountPercent.Enabled = isEnabled;
-            
+
             txtAvailableStock.Clear();
 
             txtTotalDiscountAmount.Clear();
@@ -419,14 +419,14 @@ namespace PointOfSale.UI.Views
 
             txt_ChangeAmount.Clear();
             txt_ChangeAmount.Text = "0";
-            
+
             txt_Note.Clear();
             txt_Note.Enabled = isEnabled;
 
             cmbProducts.SelectedIndex = -1;
             cmbProducts.Enabled = isEnabled;
 
-            cmb_Type.SelectedIndex = -1;
+            cmb_Type.SelectedIndex = 0;
             cmb_Type.Enabled = isEnabled;
 
             cmbSalesPersons.SelectedIndex = -1;
@@ -455,6 +455,9 @@ namespace PointOfSale.UI.Views
             cmbProducts.SelectedIndex = -1;
             cmbProducts.Enabled = isEnabled;
 
+            txt_ReceivedMoney.Text = "0";
+            txt_ReceivedMoney.Enabled = isEnabled;
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -470,23 +473,33 @@ namespace PointOfSale.UI.Views
 
         private void btnUpdateDueInvoice_Click(object sender, EventArgs e)
         {
+            bool isOnlyGiftInvoice = isValidInvoiceWithGifts();
+
+
             if (invoiceVm.invoiceItems != null && invoiceVm.invoiceItems.Any())
             {
-                Decimal Received, Due, Discount;
-                Discount = string.IsNullOrEmpty(txtFixedDiscount.Text) ? 0 : Convert.ToDecimal(txtFixedDiscount.Text);
-                Received = string.IsNullOrEmpty(txt_ReceivedMoney.Text) ? 0 : Convert.ToDecimal(txt_ReceivedMoney.Text);
-                Due = string.IsNullOrEmpty(txt_TotalPay.Text) ? 0 : Convert.ToDecimal(txt_TotalPay.Text) - (Received + Discount);
+                CalculateValuesVm vm = CalculateAndFill(false);
 
-                if (Due > 0)
+                //Decimal Received, Due, Discount;
+                //Discount = string.IsNullOrEmpty(txtFixedDiscount.Text) ? 0 : Convert.ToDecimal(txtFixedDiscount.Text);
+                //Received = string.IsNullOrEmpty(txt_ReceivedMoney.Text) ? 0 : Convert.ToDecimal(txt_ReceivedMoney.Text);
+                //Due = string.IsNullOrEmpty(txt_TotalPay.Text) ? 0 : Convert.ToDecimal(txt_TotalPay.Text) - (Received + Discount);
+
+                if (vm.ChangeAmount < 0 && !isOnlyGiftInvoice)
                 {
                     MetroFramework.MetroMessageBox.Show(this, "Please adjust with your full payment", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_ReceivedMoney.Focus();
                     return;
                 }
-                else if (!Validators.isPostiveDecimalNumber(txt_ReceivedMoney.Text.Trim()))
+                else if (!Validators.isPostiveDecimalNumber(txt_ReceivedMoney.Text.Trim()) && !isOnlyGiftInvoice)
                 {
                     MetroFramework.MetroMessageBox.Show(this, "Please Enter Non Negitive Receive Amount !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_ReceivedMoney.Focus();
+                    return;
+                }
+                else if (Convert.ToDecimal(txt_TotalPay.Text) < 0)
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Please Adjust Discount !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (cmb_Type.SelectedIndex == -1)
@@ -502,8 +515,13 @@ namespace PointOfSale.UI.Views
 
                 DisplayPrintPreview();
 
+                invoiceVm = new InvoiceVm();
+                invoiceVm.invoiceItems = new List<InvoiceItemVm>();
+
                 HandleScreen(false);
-                LoadCombos();
+                // Chaipi
+                types = productManager.GetProducts();
+                // LoadCombos();
                 //UpdateInvoiceData();
                 //MessageBox.Show("Hello");
                 //btn_NewOrder.Enabled = false;
@@ -525,20 +543,33 @@ namespace PointOfSale.UI.Views
 
         private void btnAllItems_Click(object sender, EventArgs e)
         {
-
+            OnlyShowItemForm form = new OnlyShowItemForm();
+            form.ShowDialog();
         }
 
         private void btnCalculateDue_Click(object sender, EventArgs e)
         {
             CalculateValuesVm vm = CalculateAndFill(false);
+            bool isOnlyGiftInvoice = isValidInvoiceWithGifts();
+
             if (vm == null) return;
 
             if (vm.ChangeAmount < 0 && cmb_Type.Text.ToString() != PaymentMethodEnum.Due.ToString()) { btnConfirmPayment.Enabled = false; }
             else btnConfirmPayment.Enabled = true;
+
             if (invoiceVm.ReferenceInvoiceID > 0)
             {
+                btnConfirmPayment.Enabled = false;
                 btnUpdateDueInvoice.Enabled = true;
             }
+
+            //if (!Validators.isPostiveDecimalNumber(txt_ReceivedMoney.Text.Trim()) && !isOnlyGiftInvoice)
+            //{
+            //    MetroFramework.MetroMessageBox.Show(this, "Please Enter Non Negitive Receive Amount !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    txt_ReceivedMoney.Focus();
+            //    return;
+            //}
+
         }
 
         public CalculateValuesVm CalculateAndFill(bool isItemRemoved)
@@ -546,6 +577,9 @@ namespace PointOfSale.UI.Views
             CalculateValuesVm vm = new CalculateValuesVm();
             if (invoiceVm.invoiceItems != null && invoiceVm.invoiceItems.Any())
             {
+                decimal totalAmount = invoiceVm.invoiceItems.Sum(t => t.TotalAmount);
+                txt_TotalAmount.Text = totalAmount.ToString();
+
                 vm.PercentageDiscount = CalculateCustomerDiscount();
                 vm.FixedDiscount = string.IsNullOrEmpty(txtFixedDiscount.Text) ? 0 : Convert.ToDecimal(txtFixedDiscount.Text);
                 vm.TotalDiscount = vm.PercentageDiscount + vm.FixedDiscount;
@@ -578,11 +612,12 @@ namespace PointOfSale.UI.Views
                 txt_ReceivedMoney.Clear();
                 return null;
             }
-            else
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Invoice List is empty !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return null;
-            }
+            else return null;
+            //else if(!Validators.isPostiveDecimalNumberOrZero(txt_ReceivedMoney.Text))
+            //{
+            //    MetroFramework.MetroMessageBox.Show(this, "Invoice List is empty !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return null;
+            //}
         }
 
         public Customer GetSelectedCustomer()
@@ -600,12 +635,16 @@ namespace PointOfSale.UI.Views
             try
             {
                 decimal totalAmount = string.IsNullOrEmpty(txt_TotalAmount.Text) ? 0 : Convert.ToDecimal(txt_TotalAmount.Text);
-                Customer _customer = GetSelectedCustomer();
-                if (_customer != null)
-                {
-                    txtDiscountPercent.Text = _customer.PercentDiscount.ToString();
-                    return (totalAmount / 100) * _customer.PercentDiscount;
-                }
+
+                //Customer _customer = GetSelectedCustomer();
+                //if (_customer != null)
+                //{
+                //    txtDiscountPercent.Text = _customer.PercentDiscount.ToString();
+                //    return (totalAmount / 100) * _customer.PercentDiscount;
+                //}
+
+                decimal percent = string.IsNullOrEmpty(txtDiscountPercent.Text) ? 0 : Convert.ToDecimal(txtDiscountPercent.Text);
+                return (totalAmount / 100) * percent;
 
             }
             catch (Exception)
@@ -620,6 +659,13 @@ namespace PointOfSale.UI.Views
         {
             if (IsValidated())
             {
+                bool isGiftItem = false;
+                int productID = Convert.ToInt32(cmbProducts?.SelectedValue);
+                Product selected = types.FirstOrDefault(t => t.ProductID == productID);
+                if (selected != null)
+                {
+                    isGiftItem = Convert.ToBoolean(selected.Gift);
+                }
                 bool hasSomeProductSelectedAgain = false;
 
                 foreach (DataGridViewRow row in CartdataGridView.Rows)
@@ -630,7 +676,7 @@ namespace PointOfSale.UI.Views
                         int gridItemQuantity = Convert.ToInt32(row.Cells["Quantity"].Value) + Convert.ToInt32(txt_Quantity.Text);
                         decimal totalPrice = gridItemQuantity * Convert.ToDecimal(row.Cells["UnitPrice"].Value);
 
-                        if (gridItemQuantity > Convert.ToInt32(txtAvailableStock.Text))
+                        if (gridItemQuantity > Convert.ToInt32(txtAvailableStock.Text) && !isGiftItem)
                         {
                             MetroFramework.MetroMessageBox.Show(this, "This Quantity is not Available in the Stock", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
@@ -656,7 +702,8 @@ namespace PointOfSale.UI.Views
                         ProductCode = cmbProductCode.Text,
                         ProductName = cmbProducts.Text,
                         UnitPrice = Convert.ToDecimal(txtUnitPrice.Text.Trim()),
-                        TotalAmount = Convert.ToInt64(txt_Quantity.Text.Trim()) * Convert.ToDecimal(txtUnitPrice.Text.Trim())
+                        TotalAmount = Convert.ToInt64(txt_Quantity.Text.Trim()) * Convert.ToDecimal(txtUnitPrice.Text.Trim()),
+                        isGiftItem = isGiftItem
                     };
 
                     item.ProductRawPrice = types.FirstOrDefault(t => t.ProductID == item.ProductID).ProductRawPrice;
@@ -681,6 +728,13 @@ namespace PointOfSale.UI.Views
         private bool IsValidated()
         {
             int tempQuantity;
+            bool isGiftItem = false;
+            int productID = Convert.ToInt32(cmbProducts?.SelectedValue);
+            Product selected = types.FirstOrDefault(t => t.ProductID == productID);
+            if (selected != null)
+            {
+                isGiftItem = Convert.ToBoolean(selected.Gift);
+            }
             bool isNumeric = int.TryParse(txt_Quantity.Text.Trim(), out tempQuantity);
 
             if (cmbProducts.SelectedIndex == -1)
@@ -712,7 +766,7 @@ namespace PointOfSale.UI.Views
                 MetroFramework.MetroMessageBox.Show(this, "This Quantity is not Available in the Stock", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (!Validators.isPostiveDecimalNumber(txtUnitPrice.Text.Trim()))
+            else if (!Validators.isPostiveDecimalNumber(txtUnitPrice.Text.Trim()) && !isGiftItem)
             {
                 MetroFramework.MetroMessageBox.Show(this, "This Unit Sale Price is not Available in the Stock", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -734,6 +788,7 @@ namespace PointOfSale.UI.Views
         private void btnConfirmPayment_Click(object sender, EventArgs e)
         {
             CalculateValuesVm vm = CalculateAndFill(false);
+            bool isOnlyGiftInvoice = isValidInvoiceWithGifts();
 
             if (cmb_Type.SelectedIndex == -1)
             {
@@ -741,21 +796,32 @@ namespace PointOfSale.UI.Views
                 txt_ReceivedMoney.Focus();
                 return;
             }
-            else if (!Validators.isPostiveDecimalNumber(txt_ReceivedMoney.Text.Trim()) && cmb_Type.Text.ToString() != PaymentMethodEnum.Due.ToString())
+            else if (invoiceVm.ReferenceInvoiceID > 0)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Please click update invoice to proceed as you are updating invoice !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_ReceivedMoney.Focus();
+                return;
+            }
+            else if (!Validators.isPostiveDecimalNumber(txt_ReceivedMoney.Text.Trim()) && cmb_Type.Text.ToString() != PaymentMethodEnum.Due.ToString() && !isOnlyGiftInvoice)
             {
                 MetroFramework.MetroMessageBox.Show(this, "Please Enter Non Negitive Receive Amount !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_ReceivedMoney.Focus();
                 return;
             }
-            else if (cmb_Type.Text.ToString() != PaymentMethodEnum.Due.ToString())
+            if (Convert.ToDecimal(txt_TotalPay.Text) < 0)
             {
-                if (vm.ReceivedAmount < vm.TotalToPay)
+                MetroFramework.MetroMessageBox.Show(this, "Please Adjust Discount !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (cmb_Type.Text.ToString() != PaymentMethodEnum.Due.ToString() && !isOnlyGiftInvoice)
+            {
+                if (vm != null && vm.ReceivedAmount < vm.TotalToPay)
                 {
                     MetroFramework.MetroMessageBox.Show(this, "Please adjust with your full payment", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_ReceivedMoney.Focus();
                     return;
                 }
-                else if (!Validators.isPostiveDecimalNumber(vm.ReceivedAmount.ToString()))
+                else if (vm != null && !Validators.isPostiveDecimalNumber(vm.ReceivedAmount.ToString()) && !isOnlyGiftInvoice)
                 {
                     MetroFramework.MetroMessageBox.Show(this, "Please Enter Non Negitive Receive Amount !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_ReceivedMoney.Focus();
@@ -763,15 +829,32 @@ namespace PointOfSale.UI.Views
                 }
             }
 
-            SaveInvoices();
-            DisplayPrintPreview();
+            bool isempty = SaveInvoices();
+
+            if (isempty)
+            {
+                DisplayPrintPreview();
+            }
 
             invoiceVm = new InvoiceVm();
             invoiceVm.invoiceItems = new List<InvoiceItemVm>();
-                        
+
             HandleScreen(false);
             // Chaipi
+            types = productManager.GetProducts();
             //LoadCombos();
+            btnSearch.Enabled = true;
+        }
+
+        public bool isValidInvoiceWithGifts()
+        {
+            bool isInvoiceValid = false;
+            if (invoiceVm.invoiceItems != null && invoiceVm.invoiceItems.Any())
+            {
+                isInvoiceValid = invoiceVm.invoiceItems.Exists(t => t.isGiftItem == true);
+                return isInvoiceValid;
+            }
+            return isInvoiceValid;
         }
 
         private void DisplayPrintPreview()
@@ -782,7 +865,7 @@ namespace PointOfSale.UI.Views
             printPreviewDialog1.ShowDialog();
         }
 
-        private void SaveInvoices()
+        private bool SaveInvoices()
         {
             Invoice invc = new Invoice();
             invc.Items = new List<InvoiceItem>();
@@ -834,7 +917,7 @@ namespace PointOfSale.UI.Views
                 invc.Comment = txt_Note.Text;
                 if (invoiceVm.ReferenceInvoiceID > 0)
                 {
-                    invc.InvoiceStatus = "Cancelled";
+                    //invc.InvoiceStatus = "Cancelled";
                     invc.ReferenceInvoiceID = invoiceVm.ReferenceInvoiceID;
                     invc.ReferenceInvoiceNumber = invoiceVm.RefereneInvoiceNumber;
                 }
@@ -845,12 +928,12 @@ namespace PointOfSale.UI.Views
                 invoiceManager.SaveInvoice(invc);
 
                 MetroFramework.MetroMessageBox.Show(this, "Invoice Saved Successfully !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                return true;
             }
             else
             {
                 MetroFramework.MetroMessageBox.Show(this, "Invoice List is empty !!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                return false;
             }
         }
 
@@ -903,6 +986,8 @@ namespace PointOfSale.UI.Views
         {
             txtDueAmount.Clear();
             btnConfirmPayment.Enabled = false;
+            txt_ReceivedMoney.Text = "0";
+            txt_ChangeAmount.Text = "0";
         }
 
 
@@ -1072,7 +1157,7 @@ namespace PointOfSale.UI.Views
 
             // Create string to draw
             String TotalAmount = txt_TotalAmount.Text.Trim() + "  PKR";
-            String Discount = txtFixedDiscount.Text.Trim() + "  PKR";
+            String Discount = txtTotalDiscountAmount.Text.Trim() + "  PKR";
             String TotalPay = txt_TotalPay.Text.Trim() + "  PKR";
             String ReceivedMoney = txt_ReceivedMoney.Text.Trim() + "  PKR";
             String GrandTotalPay = txt_TotalPay.Text.Trim() + "  PKR";
@@ -1151,9 +1236,13 @@ namespace PointOfSale.UI.Views
             {
                 btnConfirmPayment.Enabled = false;
             }
+            else if (invoiceVm.ReferenceInvoiceID == 0)
+            {
+                btnConfirmPayment.Enabled = false;
+            }
             else
             {
-                btnConfirmPayment.Enabled = true;
+                btnConfirmPayment.Enabled = false;
             }
         }
     }

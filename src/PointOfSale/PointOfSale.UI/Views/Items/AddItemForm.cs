@@ -49,6 +49,26 @@ namespace PointOfSale.UI.Views
                 return;
             }
 
+            //if (!string.IsNullOrEmpty(txtReorder.Text) || !Validators.isPostiveDecimalNumberOrZero(txtReorder.Text))
+            //{
+            //    MetroFramework.MetroMessageBox.Show(this, "ReOrder Level not Valid", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    txtReorder.Focus();
+            //    return;
+            //}
+            if (!string.IsNullOrEmpty(txtReorder.Text))
+            {
+                if (!Validators.numericOnly(txtReorder.Text))
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "ReOrder Level not Valid", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtReorder.Focus();
+                    return;
+                }
+            }
+
+
+
+
+
             bool nameAvailable = productManager.CheckProductName(txt_ItemName.Text);
             bool codeAvailable = productManager.CheckProductCode(txtProductCode.Text);
             if (!nameAvailable)
@@ -68,7 +88,8 @@ namespace PointOfSale.UI.Views
                         ProductName = txt_ItemName.Text,
                         ProductCode = txtProductCode.Text,
                         UnitType = cmbUnitType.SelectedItem?.ToString(),
-                        ProductType = cmbProductTypes.SelectedValue.ToString()
+                        ProductType = cmbProductTypes.SelectedValue.ToString(),
+                        ReOrderLevel = string.IsNullOrEmpty(txtReorder.Text.ToString()) ? 0 : Convert.ToInt32(txtReorder.Text.ToString())
                     };
                     if (chk_Active.CheckState == CheckState.Checked)
                     {
@@ -78,6 +99,15 @@ namespace PointOfSale.UI.Views
                     {
                         product.IsActive = 0;
                     }
+                    if (chk_Gift.CheckState == CheckState.Checked)
+                    {
+                        product.Gift = 1;
+                    }
+                    else if (chk_Gift.CheckState == CheckState.Unchecked)
+                    {
+                        product.Gift = 0;
+                    }
+
                     productManager.SaveProduct(product);
                     MetroFramework.MetroMessageBox.Show(this, "Item Added Successfully ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txt_ItemName.Clear();
@@ -85,7 +115,7 @@ namespace PointOfSale.UI.Views
                     cmbUnitType.SelectedIndex = -1;
                     cmbProductTypes.SelectedIndex = -1;
                     txt_ItemName.Focus();
-
+                    txtReorder.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -120,5 +150,6 @@ namespace PointOfSale.UI.Views
             cmbProductTypes.DisplayMember = "ProductType";
             cmbProductTypes.SelectedIndex = -1;
         }
+
     }
 }

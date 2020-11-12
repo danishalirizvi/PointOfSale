@@ -10,23 +10,26 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SalesByCustomerReportViewTableAdapter" GeneratorDataComponentClassName="SalesByCustomerReportViewTableAdapter" Name="SalesByCustomerReportView" UserDataComponentName="SalesByCustomerReportViewTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SQLite [PointOfSale]" DbObjectName="main.SalesByCustomerReportView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="SQLite [PointOfSale]" DbObjectName="main.SalesByCustomerReportView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [InvoiceDate], [InvoiceNumber], [TotalAmount], [Discount], [TotalToPay], [InvoiceType], [ReceivedAmount] FROM [SalesByCustomerReportView]</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Date], [InvoiceNumber], [Total], [Discount], [TotalToPay], [InvoiceType], [Received], [CustomerID], [Customer], [PaymentMethod] FROM [SalesByCustomerReportView]</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="InvoiceDate" DataSetColumn="InvoiceDate" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
               <Mapping SourceColumn="InvoiceNumber" DataSetColumn="InvoiceNumber" />
-              <Mapping SourceColumn="TotalAmount" DataSetColumn="TotalAmount" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
               <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
               <Mapping SourceColumn="TotalToPay" DataSetColumn="TotalToPay" />
               <Mapping SourceColumn="InvoiceType" DataSetColumn="InvoiceType" />
-              <Mapping SourceColumn="ReceivedAmount" DataSetColumn="ReceivedAmount" />
+              <Mapping SourceColumn="Received" DataSetColumn="Received" />
+              <Mapping SourceColumn="CustomerID" DataSetColumn="CustomerID" />
+              <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
+              <Mapping SourceColumn="PaymentMethod" DataSetColumn="PaymentMethod" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -38,10 +41,10 @@
   <xs:element name="SalesByCustomerDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SalesByCustomerDataSet" msprop:Generator_UserDSName="SalesByCustomerDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SalesByCustomerReportView" msprop:Generator_TableClassName="SalesByCustomerReportViewDataTable" msprop:Generator_TableVarName="tableSalesByCustomerReportView" msprop:Generator_RowChangedName="SalesByCustomerReportViewRowChanged" msprop:Generator_TablePropName="SalesByCustomerReportView" msprop:Generator_RowDeletingName="SalesByCustomerReportViewRowDeleting" msprop:Generator_RowChangingName="SalesByCustomerReportViewRowChanging" msprop:Generator_RowEvHandlerName="SalesByCustomerReportViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesByCustomerReportViewRowDeleted" msprop:Generator_RowClassName="SalesByCustomerReportViewRow" msprop:Generator_UserTableName="SalesByCustomerReportView" msprop:Generator_RowEvArgName="SalesByCustomerReportViewRowChangeEvent">
+        <xs:element name="SalesByCustomerReportView" msprop:Generator_TableClassName="SalesByCustomerReportViewDataTable" msprop:Generator_TableVarName="tableSalesByCustomerReportView" msprop:Generator_TablePropName="SalesByCustomerReportView" msprop:Generator_RowDeletingName="SalesByCustomerReportViewRowDeleting" msprop:Generator_RowChangingName="SalesByCustomerReportViewRowChanging" msprop:Generator_RowEvHandlerName="SalesByCustomerReportViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesByCustomerReportViewRowDeleted" msprop:Generator_UserTableName="SalesByCustomerReportView" msprop:Generator_RowChangedName="SalesByCustomerReportViewRowChanged" msprop:Generator_RowEvArgName="SalesByCustomerReportViewRowChangeEvent" msprop:Generator_RowClassName="SalesByCustomerReportViewRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="InvoiceDate" msprop:Generator_ColumnVarNameInTable="columnInvoiceDate" msprop:Generator_ColumnPropNameInRow="InvoiceDate" msprop:Generator_ColumnPropNameInTable="InvoiceDateColumn" msprop:Generator_UserColumnName="InvoiceDate" minOccurs="0">
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -55,7 +58,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TotalAmount" msprop:Generator_ColumnVarNameInTable="columnTotalAmount" msprop:Generator_ColumnPropNameInRow="TotalAmount" msprop:Generator_ColumnPropNameInTable="TotalAmountColumn" msprop:Generator_UserColumnName="TotalAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
               <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:decimal" minOccurs="0" />
               <xs:element name="TotalToPay" msprop:Generator_ColumnVarNameInTable="columnTotalToPay" msprop:Generator_ColumnPropNameInRow="TotalToPay" msprop:Generator_ColumnPropNameInTable="TotalToPayColumn" msprop:Generator_UserColumnName="TotalToPay" type="xs:decimal" minOccurs="0" />
               <xs:element name="InvoiceType" msprop:Generator_ColumnVarNameInTable="columnInvoiceType" msprop:Generator_ColumnPropNameInRow="InvoiceType" msprop:Generator_ColumnPropNameInTable="InvoiceTypeColumn" msprop:Generator_UserColumnName="InvoiceType" minOccurs="0">
@@ -65,7 +68,22 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ReceivedAmount" msprop:Generator_ColumnVarNameInTable="columnReceivedAmount" msprop:Generator_ColumnPropNameInRow="ReceivedAmount" msprop:Generator_ColumnPropNameInTable="ReceivedAmountColumn" msprop:Generator_UserColumnName="ReceivedAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Received" msprop:Generator_ColumnVarNameInTable="columnReceived" msprop:Generator_ColumnPropNameInRow="Received" msprop:Generator_ColumnPropNameInTable="ReceivedColumn" msprop:Generator_UserColumnName="Received" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:long" minOccurs="0" />
+              <xs:element name="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PaymentMethod" msprop:Generator_ColumnVarNameInTable="columnPaymentMethod" msprop:Generator_ColumnPropNameInRow="PaymentMethod" msprop:Generator_ColumnPropNameInTable="PaymentMethodColumn" msprop:Generator_UserColumnName="PaymentMethod" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

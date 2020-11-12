@@ -33,5 +33,9 @@ namespace PointOfSale.UI.ViewModel
         public decimal ChangeAmount { get; set; }
         public string SalesPerson { get; set; }
         public int SalesPersonID { get; set; }
+        public decimal Purchases { get; set; }
+        public decimal Sales { get; set; }
+        public decimal Profit { get; set; }
+        public string InvoiceStatus { get; set; }
     }
 }

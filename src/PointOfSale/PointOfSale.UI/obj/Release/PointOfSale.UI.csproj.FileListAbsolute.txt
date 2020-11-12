@@ -246,3 +246,16 @@ D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\TelerikData.xml
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\TelerikExport.xml
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Release\PointOfSale.UI.application
 D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Release\PointOfSale.UI.Views.AddSalesPersonForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Other\Profit\ProfitReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Other\ReOrderReport\ReOrderReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Sales\PercentDiscount\SalesByPercentDiscountReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Sales\SalesPersonReport\SalesBySalesPersonReport.rpt
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Other\Profit\ProfitReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Other\ReOrderReport\ReOrderReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Sales\PercentDiscount\SalesByPercentDiscountReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\bin\Release\Reports\Sales\SalesPersonReport\SalesBySalesPersonReport.cs
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Release\PointOfSale.UI.Reports.Sales.All.ProfitReportForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Release\PointOfSale.UI.Reports.Sales.All.ReOrderReportForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Release\PointOfSale.UI.Reports.Sales.All.SalesByPercentDiscountReportForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Release\PointOfSale.UI.Reports.Sales.All.SalesBySalesPersonReportForm.resources
+D:\PointOfSale\src\PointOfSale\PointOfSale.UI\obj\Release\PointOfSale.UI.Views.ManageSalesPersonForm.resources

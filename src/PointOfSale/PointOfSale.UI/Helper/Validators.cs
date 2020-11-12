@@ -39,6 +39,15 @@ namespace PointOfSale.UI.Helper
             return true;
         }
 
+        public static bool isPostiveDecimalNumberOrZero(string input)
+        {
+            decimal output;
+            decimal.TryParse(input, out output);
+            if (output == 0) return true;
+            else if (Convert.ToDecimal(input) <= 0) return false;
+            return true;
+        }
+
         public static string GetStandardDate(string date)
         {
             DateTime dt;

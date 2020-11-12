@@ -24,8 +24,8 @@ namespace PointOfSale.Data.DataAccess
             using (IDbConnection con = new SQLiteConnection(_connectionstring))
             {
                 con.ExecuteScalar
-                    (@"INSERT INTO Product (ProductName, ProductPrice, ProductRawPrice, ProductType, Stock, StockDate, ProductCode, UnitType, IsActive) 
-                                    VALUES (@ProductName, @ProductPrice, @ProductRawPrice, @ProductType, @Stock, @StockDate, @ProductCode, @UnitType, @IsActive)"
+                    (@"INSERT INTO Product (ProductName, ProductPrice, ProductRawPrice, ProductType, Stock, StockDate, ProductCode, UnitType, IsActive, Gift, ReOrderLevel) 
+                                    VALUES (@ProductName, @ProductPrice, @ProductRawPrice, @ProductType, @Stock, @StockDate, @ProductCode, @UnitType, @IsActive, @Gift, @ReOrderLevel)"
                     , new
                     {
                         ProductName = product.ProductName,
@@ -36,8 +36,31 @@ namespace PointOfSale.Data.DataAccess
                         StockDate = product.StockDate,
                         ProductCode = product.ProductCode,
                         UnitType = product.UnitType,
-                        IsActive = product.IsActive
+                        IsActive = product.IsActive,
+                        Gift = product.Gift,
+                        ReOrderLevel = product.ReOrderLevel
                     });
+            }
+        }
+
+        public List<Product> GetReOrderItems()
+        {
+            using (IDbConnection con = new SQLiteConnection(_connectionstring))
+            {
+                List<Product> data = new List<Product>();
+                var output = con.Query<Product>(@"SELECT * from Product");
+                if (output?.ToList().Count > 0)
+                {
+                    data = new List<Product>();
+                    foreach (var item in output.ToList())
+                    {
+                        if (item.Stock <= item.ReOrderLevel)
+                        {
+                            data.Add(item);
+                        }
+                    }
+                }
+                return data.ToList();
             }
         }
 
@@ -46,7 +69,7 @@ namespace PointOfSale.Data.DataAccess
             using (IDbConnection con = new SQLiteConnection(_connectionstring))
             {
                 con.ExecuteScalar
-                    (@"Update Product set ProductName=@ProductName, ProductType=@ProductType, ProductCode=@ProductCode, UnitType=@UnitType, IsActive=@IsActive where ProductID=@ProductID"
+                    (@"Update Product set ProductName=@ProductName, ProductType=@ProductType, ProductCode=@ProductCode, UnitType=@UnitType, IsActive=@IsActive, Gift=@Gift, ReOrderLevel=@ReOrderLevel, ProductRawPrice=@ProductRawPrice, ProductPrice=@ProductPrice where ProductID=@ProductID"
                     , new
                     {
                         ProductName = product.ProductName,
@@ -54,8 +77,22 @@ namespace PointOfSale.Data.DataAccess
                         ProductCode = product.ProductCode,
                         UnitType = product.UnitType,
                         IsActive = product.IsActive,
+                        Gift = product.Gift,
+                        ReOrderLevel = product.ReOrderLevel,
+                        ProductRawPrice = product.ProductRawPrice,
+                        ProductPrice = product.ProductPrice,
                         ProductID = product.ProductID
                     });
+            }
+        }
+
+        public List<Product> getAllProduct()
+        {
+            using (IDbConnection con = new SQLiteConnection(_connectionstring))
+            {
+                var output = con.Query<Product>
+                    (@"SELECT * FROM Product");
+                return output?.ToList();
             }
         }
 

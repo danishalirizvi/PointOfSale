@@ -18,7 +18,7 @@ namespace PointOfSale.UI.Views
         InvoiceDataSet invoiceDataSet;
         InvoiceTableAdapter invoiceTableAdopter;
         InvoiceItemTableAdapter invoiceItemTableAdopter;
-  
+
 
         List<Invoice> invoices;
 
@@ -26,12 +26,12 @@ namespace PointOfSale.UI.Views
         {
             InitializeComponent();
             invoicemanager = new InvoiceManager();
-            
+
             invoiceDataSet = new InvoiceDataSet();
             invoiceTableAdopter = new InvoiceTableAdapter();
             invoiceItemTableAdopter = new InvoiceItemTableAdapter();
-         
-            invoices = new List<Invoice>();           
+
+            invoices = new List<Invoice>();
         }
 
         private void InitializeDataGrid()
@@ -45,9 +45,9 @@ namespace PointOfSale.UI.Views
             using (this.radGridView1.DeferRefresh())
             {
                 this.radGridView1.MasterTemplate.Reset();
-                this.radGridView1.AllowSearchRow = true;                
-                this.radGridView1.TableElement.RowHeight = 20;                
-           
+                this.radGridView1.AllowSearchRow = true;
+                this.radGridView1.TableElement.RowHeight = 20;
+
                 this.radGridView1.DataSource = invoiceDataSet.Invoice;
                 this.radGridView1.MasterTemplate.Columns["InvoiceID"].HeaderText = "Invoice ID";
                 this.radGridView1.MasterTemplate.Columns["InvoiceNumber"].HeaderText = "Invoice Number";
@@ -57,12 +57,12 @@ namespace PointOfSale.UI.Views
                 this.radGridView1.MasterTemplate.Columns["PaymentMethod"].HeaderText = "Payment Method";
                 this.radGridView1.MasterTemplate.Columns["InvoiceStatus"].HeaderText = "Status";
                 this.radGridView1.MasterTemplate.Columns["ReferenceInvoiceNumber"].HeaderText = "Ref. Invoice Number";
-                
+
                 //this.radGridView1.MasterTemplate.Columns["InvoiceID"].IsVisible = false;
                 this.radGridView1.MasterTemplate.Columns["PaymentMethodID"].IsVisible = false;
                 this.radGridView1.MasterTemplate.Columns["InvoiceID"].IsVisible = false;
                 this.radGridView1.MasterTemplate.Columns["ReferenceInvoiceID"].IsVisible = false;
-                
+
 
                 this.radGridView1.MasterTemplate.AutoSizeColumnsMode = GridViewAutoSizeColumnsMode.Fill;
                 this.radGridView1.AutoGenerateColumns = false;
@@ -72,10 +72,10 @@ namespace PointOfSale.UI.Views
 
                 GridViewTemplate template = new GridViewTemplate();
                 template.DataSource = invoiceDataSet.InvoiceItem;
-                
+
                 this.radGridView1.Templates.Add(template);
                 template.Columns["ProductName"].HeaderText = "Product Name";
-                template.Columns["Quantity"].HeaderText = "Quantity";               
+                template.Columns["Quantity"].HeaderText = "Quantity";
                 template.Columns["UnitPrice"].HeaderText = "Unit Price";
 
                 template.Columns["InvoiceID"].IsVisible = false;
@@ -109,7 +109,7 @@ namespace PointOfSale.UI.Views
 
             this.invoiceTableAdopter.Fill(this.invoiceDataSet.Invoice);
             this.invoiceItemTableAdopter.Fill(this.invoiceDataSet.InvoiceItem);
-            InitializeDataGrid();   
+            InitializeDataGrid();
         }
 
         private void selectedTypeValueChanged(object sender, EventArgs e)

@@ -47,6 +47,10 @@ namespace PointOfSale.UI.Views
             this.cmbUnitType = new MetroFramework.Controls.MetroComboBox();
             this.cmbProductTypes = new MetroFramework.Controls.MetroComboBox();
             this.txtProductCode = new MetroFramework.Controls.MetroTextBox();
+            this.chk_Gift = new System.Windows.Forms.CheckBox();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.txtReorder = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +59,7 @@ namespace PointOfSale.UI.Views
             // 
             this.ProductLabel.AutoSize = true;
             this.ProductLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.ProductLabel.Location = new System.Drawing.Point(189, 146);
+            this.ProductLabel.Location = new System.Drawing.Point(143, 89);
             this.ProductLabel.Name = "ProductLabel";
             this.ProductLabel.Size = new System.Drawing.Size(131, 25);
             this.ProductLabel.TabIndex = 16;
@@ -77,7 +81,7 @@ namespace PointOfSale.UI.Views
             this.txt_ItemName.CustomButton.Visible = false;
             this.txt_ItemName.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_ItemName.Lines = new string[0];
-            this.txt_ItemName.Location = new System.Drawing.Point(326, 141);
+            this.txt_ItemName.Location = new System.Drawing.Point(280, 84);
             this.txt_ItemName.MaxLength = 32767;
             this.txt_ItemName.Name = "txt_ItemName";
             this.txt_ItemName.PasswordChar = '\0';
@@ -87,7 +91,7 @@ namespace PointOfSale.UI.Views
             this.txt_ItemName.SelectionLength = 0;
             this.txt_ItemName.SelectionStart = 0;
             this.txt_ItemName.ShortcutsEnabled = true;
-            this.txt_ItemName.Size = new System.Drawing.Size(387, 30);
+            this.txt_ItemName.Size = new System.Drawing.Size(306, 30);
             this.txt_ItemName.TabIndex = 0;
             this.txt_ItemName.UseSelectable = true;
             this.txt_ItemName.WaterMark = "Type item Name...";
@@ -98,7 +102,7 @@ namespace PointOfSale.UI.Views
             // 
             this.metroLabel9.AutoSize = true;
             this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel9.Location = new System.Drawing.Point(229, 181);
+            this.metroLabel9.Location = new System.Drawing.Point(280, 119);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(91, 25);
             this.metroLabel9.TabIndex = 12;
@@ -109,7 +113,7 @@ namespace PointOfSale.UI.Views
             this.addButton.BackColor = System.Drawing.Color.PaleTurquoise;
             this.addButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.addButton.Location = new System.Drawing.Point(407, 283);
+            this.addButton.Location = new System.Drawing.Point(280, 252);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(150, 50);
             this.addButton.TabIndex = 6;
@@ -123,7 +127,7 @@ namespace PointOfSale.UI.Views
             // 
             this.metroButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.metroButton2.Location = new System.Drawing.Point(563, 283);
+            this.metroButton2.Location = new System.Drawing.Point(436, 252);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(150, 50);
             this.metroButton2.TabIndex = 11;
@@ -140,7 +144,7 @@ namespace PointOfSale.UI.Views
             this.chk_Active.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_Active.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Active.ForeColor = System.Drawing.Color.DarkGreen;
-            this.chk_Active.Location = new System.Drawing.Point(476, 248);
+            this.chk_Active.Location = new System.Drawing.Point(202, 127);
             this.chk_Active.Name = "chk_Active";
             this.chk_Active.Size = new System.Drawing.Size(72, 22);
             this.chk_Active.TabIndex = 5;
@@ -149,17 +153,17 @@ namespace PointOfSale.UI.Views
             // 
             // AddItemDateTimePicker
             // 
-            this.AddItemDateTimePicker.Location = new System.Drawing.Point(326, 106);
+            this.AddItemDateTimePicker.Location = new System.Drawing.Point(342, 49);
             this.AddItemDateTimePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.AddItemDateTimePicker.Name = "AddItemDateTimePicker";
-            this.AddItemDateTimePicker.Size = new System.Drawing.Size(237, 29);
+            this.AddItemDateTimePicker.Size = new System.Drawing.Size(244, 29);
             this.AddItemDateTimePicker.TabIndex = 18;
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.Location = new System.Drawing.Point(264, 110);
+            this.metroLabel4.Location = new System.Drawing.Point(280, 53);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(56, 25);
             this.metroLabel4.TabIndex = 19;
@@ -169,7 +173,7 @@ namespace PointOfSale.UI.Views
             // 
             this.metroLabel10.AutoSize = true;
             this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel10.Location = new System.Drawing.Point(366, 248);
+            this.metroLabel10.Location = new System.Drawing.Point(92, 124);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(104, 25);
             this.metroLabel10.TabIndex = 13;
@@ -192,7 +196,7 @@ namespace PointOfSale.UI.Views
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PointOfSale.UI.Properties.Resources.ds_8;
-            this.pictureBox2.Location = new System.Drawing.Point(31, 187);
+            this.pictureBox2.Location = new System.Drawing.Point(23, 187);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(165, 146);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -203,7 +207,7 @@ namespace PointOfSale.UI.Views
             // 
             this.productTypeLabel.AutoSize = true;
             this.productTypeLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.productTypeLabel.Location = new System.Drawing.Point(351, 217);
+            this.productTypeLabel.Location = new System.Drawing.Point(436, 186);
             this.productTypeLabel.Name = "productTypeLabel";
             this.productTypeLabel.Size = new System.Drawing.Size(119, 25);
             this.productTypeLabel.TabIndex = 38;
@@ -213,7 +217,7 @@ namespace PointOfSale.UI.Views
             // 
             this.lblProductCode.AutoSize = true;
             this.lblProductCode.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblProductCode.Location = new System.Drawing.Point(432, 181);
+            this.lblProductCode.Location = new System.Drawing.Point(436, 119);
             this.lblProductCode.Name = "lblProductCode";
             this.lblProductCode.Size = new System.Drawing.Size(125, 25);
             this.lblProductCode.TabIndex = 40;
@@ -239,10 +243,10 @@ namespace PointOfSale.UI.Views
             "Mm",
             "Bag",
             "Feet"});
-            this.cmbUnitType.Location = new System.Drawing.Point(326, 177);
+            this.cmbUnitType.Location = new System.Drawing.Point(280, 147);
             this.cmbUnitType.Name = "cmbUnitType";
             this.cmbUnitType.PromptText = "Select Unit";
-            this.cmbUnitType.Size = new System.Drawing.Size(100, 29);
+            this.cmbUnitType.Size = new System.Drawing.Size(150, 29);
             this.cmbUnitType.TabIndex = 56;
             this.cmbUnitType.UseSelectable = true;
             // 
@@ -254,7 +258,7 @@ namespace PointOfSale.UI.Views
             "Male",
             "Female",
             "Other"});
-            this.cmbProductTypes.Location = new System.Drawing.Point(476, 213);
+            this.cmbProductTypes.Location = new System.Drawing.Point(436, 215);
             this.cmbProductTypes.Name = "cmbProductTypes";
             this.cmbProductTypes.PromptText = "Select Product Type";
             this.cmbProductTypes.Size = new System.Drawing.Size(150, 29);
@@ -277,7 +281,7 @@ namespace PointOfSale.UI.Views
             this.txtProductCode.CustomButton.Visible = false;
             this.txtProductCode.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtProductCode.Lines = new string[0];
-            this.txtProductCode.Location = new System.Drawing.Point(563, 176);
+            this.txtProductCode.Location = new System.Drawing.Point(436, 147);
             this.txtProductCode.MaxLength = 32767;
             this.txtProductCode.Name = "txtProductCode";
             this.txtProductCode.PasswordChar = '\0';
@@ -293,12 +297,82 @@ namespace PointOfSale.UI.Views
             this.txtProductCode.WaterMark = "Product Code...";
             this.txtProductCode.WaterMarkColor = System.Drawing.Color.Silver;
             this.txtProductCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            // 
+            // chk_Gift
+            // 
+            this.chk_Gift.AutoSize = true;
+            this.chk_Gift.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Gift.ForeColor = System.Drawing.Color.DarkGreen;
+            this.chk_Gift.Location = new System.Drawing.Point(202, 156);
+            this.chk_Gift.Name = "chk_Gift";
+            this.chk_Gift.Size = new System.Drawing.Size(72, 22);
+            this.chk_Gift.TabIndex = 58;
+            this.chk_Gift.Text = "Active";
+            this.chk_Gift.UseVisualStyleBackColor = true;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.Location = new System.Drawing.Point(111, 153);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(85, 25);
+            this.metroLabel2.TabIndex = 59;
+            this.metroLabel2.Text = "Gift Item :";
+            // 
+            // txtReorder
+            // 
+            // 
+            // 
+            // 
+            this.txtReorder.CustomButton.Image = null;
+            this.txtReorder.CustomButton.Location = new System.Drawing.Point(122, 2);
+            this.txtReorder.CustomButton.Name = "";
+            this.txtReorder.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtReorder.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtReorder.CustomButton.TabIndex = 1;
+            this.txtReorder.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtReorder.CustomButton.UseSelectable = true;
+            this.txtReorder.CustomButton.Visible = false;
+            this.txtReorder.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtReorder.Lines = new string[0];
+            this.txtReorder.Location = new System.Drawing.Point(280, 214);
+            this.txtReorder.MaxLength = 32767;
+            this.txtReorder.Name = "txtReorder";
+            this.txtReorder.PasswordChar = '\0';
+            this.txtReorder.PromptText = "ReOrder Quantity...";
+            this.txtReorder.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtReorder.SelectedText = "";
+            this.txtReorder.SelectionLength = 0;
+            this.txtReorder.SelectionStart = 0;
+            this.txtReorder.ShortcutsEnabled = true;
+            this.txtReorder.Size = new System.Drawing.Size(150, 30);
+            this.txtReorder.TabIndex = 61;
+            this.txtReorder.UseSelectable = true;
+            this.txtReorder.WaterMark = "ReOrder Quantity...";
+            this.txtReorder.WaterMarkColor = System.Drawing.Color.Silver;
+            this.txtReorder.WaterMarkFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.Location = new System.Drawing.Point(280, 186);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(128, 25);
+            this.metroLabel3.TabIndex = 60;
+            this.metroLabel3.Text = "ReOrder Level :";
             // 
             // AddItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 349);
+            this.ClientSize = new System.Drawing.Size(609, 348);
+            this.Controls.Add(this.txtReorder);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.chk_Gift);
+            this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.txtProductCode);
             this.Controls.Add(this.cmbUnitType);
             this.Controls.Add(this.cmbProductTypes);
@@ -347,5 +421,9 @@ namespace PointOfSale.UI.Views
         private MetroFramework.Controls.MetroComboBox cmbUnitType;
         private MetroFramework.Controls.MetroComboBox cmbProductTypes;
         private MetroFramework.Controls.MetroTextBox txtProductCode;
+        private System.Windows.Forms.CheckBox chk_Gift;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroTextBox txtReorder;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }

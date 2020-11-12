@@ -18,6 +18,7 @@ namespace PointOfSale.Data.Entities
         public string ProductType { get; set; }
         public decimal ProductRawPrice { get; set; }
         public decimal ProductPrice { get; set; }
-
+        public int Gift { get; set; }
+        public int ReOrderLevel { get; set; }
     }
 }

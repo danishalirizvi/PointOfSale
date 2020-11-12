@@ -378,5 +378,17 @@ namespace PointOfSale.UI.Views
             SalesBySalesPersonReportForm form = new SalesBySalesPersonReportForm();
             form.ShowDialog();
         }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            ProfitReportForm form = new ProfitReportForm();
+            form.ShowDialog();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            ReOrderReportForm form = new ReOrderReportForm();
+            form.ShowDialog();
+        }
     }
 }
